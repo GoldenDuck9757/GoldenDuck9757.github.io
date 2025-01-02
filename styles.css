@@ -1,0 +1,83 @@
+/* Reseta zoom e impede gestos de pinch-to-zoom */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #ccc;
+    background: #121212;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    touch-action: manipulation;
+}
+
+html {
+    user-select: none;
+    overflow-x: hidden;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-text-size-adjust: 100%; /* Impede zoom em dispositivos móveis */
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Cabeçalho fixo */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f1f1f;
+    color: #f5ba00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Pop-up container */
+.popup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Estilo dos pop-ups */
+.popup {
+    background: #1f1f1f;
+    border: 2px solid #f5ba00;
+    border-radius: 15px;
+    padding: 20px 40px;
+    margin: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #f5ba00;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.popup.fade-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .popup {
+        font-size: 1.5rem;
+        padding: 15px 30px;
+    }
+}
