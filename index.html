@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>GoldenDuck9757</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -39,10 +40,20 @@
 
         // Adiciona mais pop-ups conforme o usuário rola
         window.addEventListener("scroll", () => {
-            if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 200) {
+            if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 300) {
                 for (let i = 0; i < 5; i++) {
                     createPopup();
                 }
+            }
+        });
+
+        // Efeito no cabeçalho ao rolar
+        const header = document.querySelector("header");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
             }
         });
     </script>
