@@ -3,7 +3,9 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     color: #ddd;
-    background: radial-gradient(circle, #1a1a1a, #0f0f0f);
+    background: linear-gradient(to bottom, #1a1a1a, #ff5722, #2196f3, #4caf50, #ffeb3b);
+    background-attachment: fixed;
+    background-size: 100% 300vh; /* Permite o gradiente mudar ao rolar */
     overflow-x: hidden;
     scroll-behavior: smooth;
     touch-action: manipulation;
@@ -40,11 +42,6 @@ header h1 {
     text-transform: uppercase;
     letter-spacing: 4px;
     text-shadow: 0 2px 5px rgba(255, 215, 0, 0.7);
-}
-
-/* Efeito no cabeçalho ao rolar */
-header.scrolled {
-    background-color: #1a1a1a;
 }
 
 /* Container dos pop-ups */
