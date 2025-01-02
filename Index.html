@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenDuck9757</title>
+    <style>
+        /* Estilo global */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            overflow-x: hidden;
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1e90ff;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Container para os pop-ups */
+        .popup-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .popup {
+            background: #fff;
+            border: 2px solid #1e90ff;
+            border-radius: 10px;
+            padding: 20px 40px;
+            margin: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Inicialmente invisível */
+            transform: translateY(20px); /* Movido para baixo */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .popup.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>GoldenDuck9757</h1>
+    </header>
+
+    <!-- Conteúdo com os pop-ups -->
+    <div class="popup-container">
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+        <div class="popup">Golden4484</div>
+    </div>
+
+    <!-- JavaScript para animação ao rolar -->
+    <script>
+        const popups = document.querySelectorAll('.popup');
+
+        // Função para ativar o efeito de fade-in ao rolar a página
+        const showPopups = () => {
+            popups.forEach(popup => {
+                const rect = popup.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // Se o elemento estiver visível na tela, adicione a classe "fade-in"
+                if (rect.top <= windowHeight - 100) {
+                    popup.classList.add('fade-in');
+                }
+            });
+        };
+
+        // Adiciona um evento ao rolar a página
+        window.addEventListener('scroll', showPopups);
+
+        // Inicializa o efeito na primeira carga da página
+        showPopups();
+    </script>
+</body>
+  </html>
