@@ -2,60 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Golden4484</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header>
-        <h1>Golden4484</h1>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h1>Hey, você tá aqui, né?</h1>
+            <p>Wow, que incrível! Já que está aqui, dá uma olhada no meu repositório do Github, rs... Sério, dá uma olhada:</p>
+            <a href="https://github.com/GoldenDuck9757" target="_blank" class="button">Visitar Github</a>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <h1>Bem-vindo ao meu site incrível!</h1>
     </header>
 
-    <!-- Container dos pop-ups -->
-    <div class="popup-container" id="popup-container"></div>
-
-    <!-- JavaScript para animação e geração infinita -->
-    <script>
-        const container = document.getElementById("popup-container");
-
-        // Função para criar um novo pop-up
-        const createPopup = () => {
-            const popup = document.createElement("div");
-            popup.classList.add("popup");
-            popup.textContent = "Golden4484";
-            container.appendChild(popup);
-
-            // Adiciona a classe fade-in para animação
-            setTimeout(() => {
-                popup.classList.add("fade-in");
-            }, 100);
-        };
-
-        // Gera pop-ups iniciais
-        for (let i = 0; i < 10; i++) {
-            createPopup();
-        }
-
-        // Adiciona mais pop-ups conforme o usuário rola
-        window.addEventListener("scroll", () => {
-            if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 300) {
-                for (let i = 0; i < 5; i++) {
-                    createPopup();
-                }
-            }
-        });
-
-        // Efeito no cabeçalho ao rolar
-        const header = document.querySelector("header");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-    </script>
+    <main>
+        <section class="content">
+            <p>Este é apenas o começo, explore mais no meu Github!</p>
+        </section>
+    </main>
 </body>
 </html>
