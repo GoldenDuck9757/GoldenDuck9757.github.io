@@ -8,200 +8,182 @@
     />
     <title>ChatGram</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        background: linear-gradient(to right, #2c3e50, #3498db);
-        color: white;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-      }
-      .header-content,
-      .info-content,
-      .graph-container,
-      .feedback-container {
-        margin: 0 auto;
-        max-width: 800px;
-        padding: 20px;
-      }
-      .header-content {
-        text-align: center;
-        padding: 50px 0;
-      }
-      #main-title {
-        font-size: 2.5rem;
-        margin: 0;
-      }
-      #start-button {
-        background-color: #3498db;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-        font-size: 1rem;
-        padding: 10px 20px;
-        transition: background-color 0.3s ease;
-      }
-      #start-button:hover {
-        background-color: #2980b9;
-      }
-      .section {
-        padding: 50px 20px;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-      .fade-in {
-        opacity: 1;
-      }
-      .graph-container {
-        display: flex;
-        justify-content: space-around;
-      }
-      .graph-bar {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        position: relative;
-        width: 30%;
-      }
-      .bar-fill {
-        background-color: #3498db;
-        border-radius: 10px 10px 0 0;
-        height: 0;
-        width: 100%;
-        transition: height 0.5s ease-in-out;
-      }
-      .animate-bar .bar-fill {
-        height: var(--height);
-      }
-      .bar-label,
-      .bar-tooltip {
-        color: white;
-        font-size: 0.9rem;
-        position: absolute;
-        text-align: center;
-        width: 100%;
-      }
-      .bar-label {
-        bottom: -25px;
-      }
-      .bar-tooltip {
-        top: -25px;
-      }
-      .feedback-box {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-        margin-bottom: 20px;
-        padding: 20px;
-      }
-      .feedback-rating {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-      }
-      .spacer {
-        height: 100px;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Header Section -->
-    <header id="header">
-      <div class="header-content">
-        <h1 id="main-title" class="typing-animation">
-          ChatGram<span id="cursor">|</span>
+    <div class="container mx-auto">
+      <!-- Header com animação de digitação -->
+      <header id="header" class="text-center py-12">
+        <h1 id="main-title" class="text-5xl font-bold mb-4">
+          ChatGram<span id="cursor" class="text-5xl font-bold">|</span>
         </h1>
-        <div class="host-info">
-          <span>hosteado por Hsyst</span>
+        <div
+          class="host-info flex items-center justify-center gap-2 mb-6"
+        >
           <img
             src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4"
             alt="Hsyst Logo"
+            class="w-8 h-8 rounded border border-gray-600"
           />
+          <span class="text-lg text-gray-300">hosteado por Hsyst</span>
         </div>
-        <button id="start-button">Start</button>
-      </div>
-    </header>
+        <button
+          id="start-button"
+          class="bg-gradient-to-r from-gray-700 to-gray-500 text-white px-8 py-3 rounded-full text-xl hover:scale-105 transition-transform"
+        >
+          Start
+        </button>
+      </header>
 
-    <!-- Info Section -->
-    <section id="info-section" class="section fade-in">
-      <div class="info-content">
-        <h2>Sobre o ChatGram</h2>
-        <p>
-          O ChatGram é uma plataforma inovadora onde a privacidade é prioridade.
-          Aqui, você encontra anonimato, criptografia e uma experiência de usuário
-          moderna e segura. Explore os recursos e descubra como nossa interface
-          inteligente transforma a comunicação.
+      <hr class="divider" />
+
+      <!-- Seção: Como Funciona o ChatGram -->
+      <section id="how-it-works" class="py-8 px-4 text-center">
+        <h2 class="text-3xl font-semibold mb-4">
+          Como Funciona o ChatGram
+        </h2>
+        <p class="text-gray-200 leading-relaxed max-w-2xl mx-auto">
+          O ChatGram oferece uma experiência única de comunicação com foco
+          na privacidade e anonimato. Nossa plataforma integra recursos de
+          criptografia de ponta para garantir que suas conversas permaneçam
+          seguras e confidenciais. Explore as funcionalidades e descubra uma
+          nova forma de interagir online.
         </p>
-      </div>
-    </section>
+      </section>
 
-    <!-- Graph Section -->
-    <section id="graph-section" class="section fade-in">
-      <h2>Avaliação do Site</h2>
-      <div class="graph-container">
-        <div class="graph-bar" data-percentage="15">
-          <div class="bar-fill" style="--height: 15%"></div>
-          <span class="bar-label">Não gostou do site</span>
-          <div class="bar-tooltip">15%</div>
-        </div>
-        <div class="graph-bar" data-percentage="35">
-          <div class="bar-fill" style="--height: 35%"></div>
-          <span class="bar-label">Neutro</span>
-          <div class="bar-tooltip">35%</div>
-        </div>
-        <div class="graph-bar" data-percentage="50">
-          <div class="bar-fill" style="--height: 50%"></div>
-          <span class="bar-label">Gostou</span>
-          <div class="bar-tooltip">50%</div>
-        </div>
-      </div>
-    </section>
+      <hr class="divider" />
 
-    <!-- Feedback Section -->
-    <section id="feedback-section" class="section fade-in">
-      <h2>Feedback dos Usuários</h2>
-      <div class="feedback-container">
-        <div class="feedback-box">
-          <h3>Anônimo</h3>
-          <p>Excelente interface e usabilidade diferenciada.</p>
-          <div class="feedback-rating">
-            <span class="stars">☆☆☆☆</span>
-            <span class="useful-count">42 pessoas acharam isso útil</span>
+      <!-- Seção: Segurança da Informação -->
+      <section id="info-security" class="py-8 px-4 text-center">
+        <h2 class="text-3xl font-semibold mb-4">
+          Segurança da Informação
+        </h2>
+        <p class="text-gray-200 leading-relaxed max-w-2xl mx-auto">
+          Priorizamos a segurança dos seus dados com protocolos avançados e
+          criptografia robusta. Nossos sistemas garantem que suas informações
+          estejam protegidas contra acessos não autorizados, mantendo sua
+          privacidade sempre preservada.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Seção: Resenhas -->
+      <section id="reviews" class="py-8 px-4 text-center">
+        <h2 class="text-3xl font-semibold mb-8">Resenhas</h2>
+        <div
+          class="reviews-container grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+        >
+          <!-- Review 1 -->
+          <div
+            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
+          >
+            <div class="review-header flex items-center gap-3 mb-3">
+              <svg
+                class="w-8 h-8 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                ></path>
+              </svg>
+              <span class="font-semibold text-gray-300">Anônimo</span>
+            </div>
+            <p class="text-gray-200 mb-4">
+              A experiência é incrível, a interface é intuitiva e a
+              privacidade é garantida.
+            </p>
+            <div class="review-footer text-right">
+              <span class="text-sm text-gray-400"
+                >42 pessoas acharam isso útil</span
+              >
+            </div>
+          </div>
+          <!-- Review 2 -->
+          <div
+            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
+          >
+            <div class="review-header flex items-center gap-3 mb-3">
+              <svg
+                class="w-8 h-8 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                ></path>
+              </svg>
+              <span class="font-semibold text-gray-300">Anônimo</span>
+            </div>
+            <p class="text-gray-200 mb-4">
+              Design moderno e funcional, mas ainda pode melhorar em alguns
+              aspectos.
+            </p>
+            <div class="review-footer text-right">
+              <span class="text-sm text-gray-400"
+                >30 pessoas acharam isso útil</span
+              >
+            </div>
+          </div>
+          <!-- Review 3 -->
+          <div
+            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
+          >
+            <div class="review-header flex items-center gap-3 mb-3">
+              <svg
+                class="w-8 h-8 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                ></path>
+              </svg>
+              <span class="font-semibold text-gray-300">Anônimo</span>
+            </div>
+            <p class="text-gray-200 mb-4">
+              A segurança e o anonimato realmente fazem a diferença, parabéns
+              pelo projeto.
+            </p>
+            <div class="review-footer text-right">
+              <span class="text-sm text-gray-400"
+                >55 pessoas acharam isso útil</span
+              >
+            </div>
+          </div>
+          <!-- Review 4 -->
+          <div
+            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
+          >
+            <div class="review-header flex items-center gap-3 mb-3">
+              <svg
+                class="w-8 h-8 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                ></path>
+              </svg>
+              <span class="font-semibold text-gray-300">Anônimo</span>
+            </div>
+            <p class="text-gray-200 mb-4">
+              Interface limpa e objetiva, realmente atendeu todas as minhas
+              expectativas.
+            </p>
+            <div class="review-footer text-right">
+              <span class="text-sm text-gray-400"
+                >23 pessoas acharam isso útil</span
+              >
+            </div>
           </div>
         </div>
-        <div class="feedback-box">
-          <h3>Anônimo</h3>
-          <p>O design é muito moderno, mas pode melhorar a navegação.</p>
-          <div class="feedback-rating">
-            <span class="stars">☆☆☆</span>
-            <span class="useful-count">30 pessoas acharam isso útil</span>
-          </div>
-        </div>
-        <div class="feedback-box">
-          <h3>Anônimo</h3>
-          <p>A privacidade é real e o anonimato impressiona.</p>
-          <div class="feedback-rating">
-            <span class="stars">☆☆☆☆☆</span>
-            <span class="useful-count">55 pessoas acharam isso útil</span>
-          </div>
-        </div>
-        <div class="feedback-box">
-          <h3>Anônimo</h3>
-          <p>Interface limpa e objetiva, recomendo!</p>
-          <div class="feedback-rating">
-            <span class="stars">☆☆☆☆</span>
-            <span class="useful-count">23 pessoas acharam isso útil</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- Extra spacing for scroll effect -->
-    <div class="spacer"></div>
-
-    <!-- Scripts -->
     <script>
-      // Variáveis para animação do título
+      // Animação de digitação para o título do header
       const titleElement = document.getElementById("main-title");
       const cursorElement = document.getElementById("cursor");
       const phrases = ["anonimato", "privacidade", "criptografia", "ChatGram"];
@@ -215,7 +197,8 @@
       function typePhrase() {
         if (typing) {
           if (charIndex < phrases[currentPhrase].length) {
-            titleElement.innerText = phrases[currentPhrase].substring(0, charIndex + 1);
+            titleElement.innerText =
+              phrases[currentPhrase].substring(0, charIndex + 1);
             titleElement.append(cursorElement);
             charIndex++;
             setTimeout(typePhrase, typingSpeed);
@@ -225,7 +208,8 @@
           }
         } else {
           if (charIndex > 0) {
-            titleElement.innerText = phrases[currentPhrase].substring(0, charIndex - 1);
+            titleElement.innerText =
+              phrases[currentPhrase].substring(0, charIndex - 1);
             titleElement.append(cursorElement);
             charIndex--;
             setTimeout(typePhrase, erasingSpeed);
@@ -236,46 +220,16 @@
           }
         }
       }
-
       setTimeout(() => {
         typePhrase();
       }, 3000);
 
-      // Botão de Start
-      document.getElementById("start-button").addEventListener("click", function () {
-        window.location.href = "https://meusite.com";
-      });
-
-      // Animações de scroll
-      window.addEventListener("scroll", function () {
-        let scrollY = window.scrollY;
-        document.querySelectorAll(".section").forEach((section) => {
-          const sectionTop = section.offsetTop;
-          if (scrollY > sectionTop - window.innerHeight * 0.8) {
-            section.classList.add("fade-in");
-            section.classList.remove("fade-out");
-          } else {
-            section.classList.remove("fade-in");
-            section.classList.add("fade-out");
-          }
+      // Redireciona para o site ao clicar no botão Start
+      document
+        .getElementById("start-button")
+        .addEventListener("click", function () {
+          window.location.href = "https://meusite.com";
         });
-      });
-
-      // Animação do gráfico ao entrar na viewport
-      const graphSection = document.getElementById("graph-section");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              document.querySelectorAll(".graph-bar").forEach((bar) => {
-                bar.classList.add("animate-bar");
-              });
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-      observer.observe(graphSection);
     </script>
   </body>
 </html>
