@@ -1,211 +1,162 @@
-:root {
-  --primary-color: #000;
-  --secondary-color: #fff;
-  --accent-color: #888;
-  --bg-gradient-start: #1a1a1a;
-  --bg-gradient-end: #000;
-  --transition-duration: 0.5s;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ChatGram</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1 id="title">ChatGram<span id="cursor">|</span></h1>
+      <div class="host-info">
+        <span>hosteado por Hsyst</span>
+        <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst Logo" class="host-logo">
+      </div>
+      <button id="startBtn">Start</button>
+    </div>
+  </header>
+  
+  <section class="content fade">
+    <h2>Sobre o ChatGram</h2>
+    <p>
+      ChatGram é uma plataforma inovadora que prioriza o anonimato e a privacidade dos usuários, proporcionando uma experiência segura, moderna e única...
+    </p>
+  </section>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <section class="graph-container fade">
+    <h2>Gráfico de Usuários Simultâneos</h2>
+    <div class="chart">
+      <div class="bar" data-percentage="20">
+        <span class="bar-label">Não gostou do site</span>
+      </div>
+      <div class="bar" data-percentage="50">
+        <span class="bar-label">Neutro</span>
+      </div>
+      <div class="bar" data-percentage="80">
+        <span class="bar-label">Gostou</span>
+      </div>
+    </div>
+  </section>
 
-body {
-  font-family: var(--font-family);
-  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-  color: var(--secondary-color);
-  overflow-x: hidden;
-  line-height: 1.8;
-}
+  <section class="reviews-container fade">
+    <h2>Avaliações</h2>
+    <div class="reviews">
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
+        </div>
+        <div class="review-content">
+          <p>O site é incrível e super seguro!</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">23 pessoas acharam isso útil</div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
+        </div>
+        <div class="review-content">
+          <p>Interface moderna e fácil de usar.</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">45 pessoas acharam isso útil</div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
+        </div>
+        <div class="review-content">
+          <p>Privacidade total e design impressionante.</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">12 pessoas acharam isso útil</div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
+        </div>
+        <div class="review-content">
+          <p>Melhor plataforma de comunicação que já usei.</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">67 pessoas acharam isso útil</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  background: linear-gradient(135deg, #000, #222);
-}
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const title = document.getElementById("title")
+      const cursor = document.getElementById("cursor")
+      const texts = ["ChatGram", "anonimato", "privacidade", "criptografia", "ChatGram"]
+      let textIndex = 0, charIndex = 0
+      let isDeleting = false
+      const typingSpeed = 150, pauseDelay = 1000
 
-.hero-content {
-  z-index: 1;
-  padding: 5rem;
-}
+      function type() {
+        const currentText = texts[textIndex]
+        if (!isDeleting) {
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
+          if (charIndex < currentText.length) {
+            charIndex++
+            setTimeout(type, typingSpeed)
+          } else {
+            isDeleting = true
+            setTimeout(type, pauseDelay)
+          }
+        } else {
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
+          if (charIndex > 0) {
+            charIndex--
+            setTimeout(type, typingSpeed / 2)
+          } else {
+            isDeleting = false
+            textIndex = (textIndex + 1) % texts.length
+            setTimeout(type, typingSpeed)
+          }
+        }
+      }
+      type()
 
-.hero-content h1 {
-  font-size: 10rem;
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-}
+      // Botão Start
+      document.getElementById("startBtn").addEventListener("click", () => {
+        window.location.href = "https://seusite.com"
+      })
 
-.cursor {
-  display: inline-block;
-  width: 2px;
-  height: 100%;
-  background-color: var(--secondary-color);
-  vertical-align: middle;
-  animation: blink 1s step-end infinite;
-}
+      // Fade in/out ao rolar a página
+      const faders = document.querySelectorAll('.fade')
+      const observerOptions = { threshold: 0.3 }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          } else {
+            entry.target.classList.remove('visible')
+          }
+        })
+      }, observerOptions)
+      faders.forEach(fader => observer.observe(fader))
 
-@keyframes blink {
-  from, to {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-.host-info {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 40px;
-}
-
-.host-text {
-  font-size: 1rem;
-  color: var(--accent-color);
-}
-
-.host-logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.hero-content p.tagline {
-  font-size: 2rem;
-  color: #ddd;
-  margin-bottom: 50px;
-}
-
-button {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-  border: none;
-  padding: 20px 50px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background var(--transition-duration), transform var(--transition-duration);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-button:hover {
-  background: #f0f0f0;
-  transform: scale(1.1);
-}
-
-main {
-  padding: 80px 20px;
-  max-width: 1400px;
-  margin: auto;
-}
-
-#about {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 60px;
-  margin-bottom: 60px;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none;
-}
-
-.section:not(#about) {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 60px;
-  margin-bottom: 60px;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-}
-
-.section.appear {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section.disappear {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.section h2 {
-  font-size: 3rem;
-  margin-bottom: 30px;
-  color: var(--secondary-color);
-  border-bottom: 2px solid var(--secondary-color);
-  padding-bottom: 20px;
-}
-
-.section p {
-  font-size: 1.5rem;
-  color: #ddd;
-  margin-bottom: 30px;
-}
-
-.feedback-box {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid #444;
-  border-radius: 10px;
-  padding: 40px;
-}
-
-.feedback {
-  margin-bottom: 30px;
-  padding: 20px;
-  border-bottom: 1px solid #666;
-  opacity: 1;
-  position: relative;
-}
-
-.feedback:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.feedback .name {
-  font-weight: bold;
-  color: var(--secondary-color);
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-}
-
-.feedback .comment {
-  color: #ddd;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
-
-.feedback-footer {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  text-align: right;
-  font-size: 1rem;
-}
-
-.star-rating {
-  color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
-
-.useful-count {
-  color: var(--accent-color);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+      // Animação do gráfico somente na carga
+      const bars = document.querySelectorAll('.bar')
+      window.addEventListener('load', () => {
+        bars.forEach((bar, index) => {
+          setTimeout(() => {
+            bar.style.height = bar.getAttribute('data-percentage') + '%'
+          }, index * 300)
+        })
+      })
+    })
+  </script>
+</body>
+</html>
