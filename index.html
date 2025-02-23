@@ -1,139 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGram - Apresentação Corporativa</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>ChatGram</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Estilos e fontes podem ser adicionados aqui... -->
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1 id="main-title">ChatGram</h1>
-      <div class="host-info">
-        <span class="host-text">hosteado por Hsyst</span>
-        <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst Logo" class="host-logo">
+  <!-- Cabeçalho com título animado e botão Start... -->
+  <header>
+    <div class="header-container">
+      <!-- Título inicial com animação de digitação -->
+      <div class="title-container">
+        <h1 id="title">ChatGram<span id="cursor">|</span></h1>
       </div>
-      <p class="tagline">Sua plataforma de comunicação anônima</p>
-      <button id="startButton">Iniciar</button>
+      <!-- Botão Start que redireciona para o seu site -->
+      <button id="startBtn">Start</button>
     </div>
   </header>
-  <main>
-    <section class="section" id="about">
+
+  <!-- Seção Sobre: Explicação sobre o ChatGram, privacidade, etc... -->
+  <section id="about">
+    <div class="content">
       <h2>Sobre o ChatGram</h2>
-      <p>O ChatGram é uma plataforma de comunicação que prioriza a privacidade e o anonimato dos usuários. Com uma interface intuitiva e recursos que garantem conversas seguras, o ChatGram permite que você se conecte sem expor sua identidade. Junte-se a nós e descubra uma nova forma de se comunicar!</p>
-    </section>
-    <section class="section" id="feedback">
-      <h2>Avaliações</h2>
+      <p>
+        O ChatGram é uma plataforma moderna que prioriza a privacidade, o anonimato e a criptografia...
+        Nossa proposta é oferecer uma experiência única onde os dados são protegidos e a interação é transparente...
+      </p>
+    </div>
+  </section>
+
+  <!-- Seção Gráfico: Animação de gráfico mentiroso com usuários simultâneos... -->
+  <section id="graph">
+    <div class="graph-container">
+      <h2>Usuários Simultâneos</h2>
+      <div class="bar-chart">
+        <!-- Barras animadas representando usuários... -->
+        <div class="bar" style="--delay:0.2s;"></div>
+        <div class="bar" style="--delay:0.4s;"></div>
+        <div class="bar" style="--delay:0.6s;"></div>
+        <div class="bar" style="--delay:0.8s;"></div>
+        <div class="bar" style="--delay:1s;"></div>
+        <div class="bar" style="--delay:1.2s;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Feedback: Caixa com comentários anônimos... -->
+  <section id="feedback">
+    <div class="feedback-container">
+      <h2>Feedback</h2>
       <div class="feedback-box">
-        <div class="feedback">
-          <div class="name">Anônimo</div>
-          <div class="comment">Ótima plataforma! Recomendo a todos!</div>
-          <div class="feedback-footer">
-            <div class="star-rating">☆☆☆☆☆</div>
-            <div class="useful-count">400 úteis</div>
-          </div>
+        <!-- Comentário 1 -->
+        <div class="feedback-item">
+          <span class="username">anônimo</span>
+          <p class="comment">Excelente experiência, super recomendo...</p>
         </div>
-        <div class="feedback">
-          <div class="name">Anônimo</div>
-          <div class="comment">Muito útil e fácil de usar!</div>
-          <div class="feedback-footer">
-            <div class="star-rating">☆☆☆☆☆</div>
-            <div class="useful-count">400 úteis</div>
-          </div>
+        <!-- Comentário 2 -->
+        <div class="feedback-item">
+          <span class="username">anônimo</span>
+          <p class="comment">Privacidade e segurança acima de tudo...</p>
         </div>
-        <div class="feedback">
-          <div class="name">Anônimo</div>
-          <div class="comment">Adorei a experiência de uso!</div>
-          <div class="feedback-footer">
-            <div class="star-rating">☆☆☆☆</div>
-            <div class="useful-count">400 úteis</div>
-          </div>
+        <!-- Comentário 3 -->
+        <div class="feedback-item">
+          <span class="username">anônimo</span>
+          <p class="comment">Interface moderna e intuitiva, gostei demais...</p>
         </div>
-        <div class="feedback">
-          <div class="name">Anônimo</div>
-          <div class="comment">Excelente para se comunicar de forma anônima!</div>
-          <div class="feedback-footer">
-            <div class="star-rating">☆☆☆☆☆</div>
-            <div class="useful-count">400 úteis</div>
-          </div>
+        <!-- Comentário 4 -->
+        <div class="feedback-item">
+          <span class="username">anônimo</span>
+          <p class="comment">Nunca vi algo tão inovador no mercado...</p>
+        </div>
+        <!-- Comentário 5 -->
+        <div class="feedback-item">
+          <span class="username">anônimo</span>
+          <p class="comment">Uma revolução em termos de segurança e design...</p>
         </div>
       </div>
-    </section>
-    <section class="section" id="privacy">
-      <h2>Privacidade &amp; Segurança</h2>
-      <p>Nossa tecnologia utiliza criptografia de ponta para proteger seus dados e garantir a confidencialidade em todas as interações. Sua segurança é nossa prioridade.</p>
-    </section>
-    <section class="section" id="graph">
-      <h2>Usuários Simultâneos</h2>
-      <div id="animatedGraph"></div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Scripts para animação do título e interação do botão Start... -->
   <script>
-    const title = document.getElementById('main-title');
-    const phrases = ["ChatGram", "Privacidade", "Anonimato"];
-    let currentPhrase = 0;
-    let currentIndex = 0;
-    let isDeleting = false;
-    function type() {
-      const phrase = phrases[currentPhrase];
-      title.textContent = phrase.substring(0, currentIndex);
-      if (!isDeleting) {
-        if (currentIndex < phrase.length) {
-          currentIndex++;
-          setTimeout(type, 200);
+    // Animação de digitação no título
+    document.addEventListener('DOMContentLoaded', function() {
+      const title = document.getElementById('title')
+      const cursor = document.getElementById('cursor')
+      const texts = ['anonimato', 'privacidade', 'criptografia', 'ChatGram']
+      let textIndex = 0
+      let charIndex = 0
+      let isDeleting = false
+      const typingSpeed = 150
+      const deletingSpeed = 100
+      const delayBetween = 2000
+      const initialDelay = 3000
+
+      function type() {
+        let currentText = texts[textIndex]
+        if (!isDeleting) {
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
+          if (charIndex < currentText.length) {
+            charIndex++
+            setTimeout(type, typingSpeed)
+          } else {
+            isDeleting = true
+            setTimeout(type, delayBetween)
+          }
         } else {
-          setTimeout(() => {
-            isDeleting = true;
-            setTimeout(type, 100);
-          }, 4000);
-        }
-      } else {
-        if (currentIndex > 0) {
-          currentIndex--;
-          setTimeout(type, 100);
-        } else {
-          isDeleting = false;
-          currentPhrase = (currentPhrase + 1) % phrases.length;
-          setTimeout(type, 200);
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
+          if (charIndex > 0) {
+            charIndex--
+            setTimeout(type, deletingSpeed)
+          } else {
+            isDeleting = false
+            textIndex = (textIndex + 1) % texts.length
+            setTimeout(type, typingSpeed)
+          }
         }
       }
-    }
-    setTimeout(type, 2000);
+      setTimeout(type, initialDelay)
+    })
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('.section');
-      const observerOptions = {
-        root: null,
-        threshold: 0.2
-      };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('appear');
-            entry.target.classList.remove('disappear');
-          } else {
-            entry.target.classList.add('disappear');
-            entry.target.classList.remove('appear');
-          }
-        });
-      }, observerOptions);
-      sections.forEach(section => observer.observe(section));
-
-      const graph = document.getElementById('animatedGraph');
-      const bar = document.createElement('div');
-      bar.style.position = 'absolute';
-      bar.style.bottom = '0';
-      bar.style.width = '100%';
-      bar.style.height = '0';
-      bar.style.backgroundColor = '#4caf50';
-      bar.style.transition = 'height 2s ease-in-out';
-      graph.appendChild(bar);
-
-      setTimeout(() => {
-        bar.style.height = '90%';
-      }, 500);
-    });
+    // Redirecionamento do botão Start para o seu site
+    document.getElementById('startBtn').addEventListener('click', function(){
+      window.location.href = "https://seusite.com"  // Substitua pela URL do seu site...
+    })
   </script>
+
+  <!-- Espaços e comentários adicionais para manutenção e clareza do código -->
+  <!-- Fim do corpo do documento -->
 </body>
 </html>
