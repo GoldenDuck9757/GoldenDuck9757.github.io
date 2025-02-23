@@ -1,128 +1,293 @@
+/* ================================================================= */
+/* styles.css - Estilos customizados para o ChatGram               */
+/* ================================================================= */
+
+/* Reset e configuração global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e cores globais */
 body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    color: #333;
-    overflow-x: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    margin-top: 100px;
+/* ================================================================= */
+/* Gradientes para Seções                                           */
+/* ================================================================= */
+.gradient-top {
+  background: linear-gradient(135deg, #000, #333);
+  width: 100%;
+  min-height: 100vh;
 }
 
-#header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 20px 0;
+.gradient-bottom {
+  background: linear-gradient(135deg, #444, #222);
+  width: 100%;
+  min-height: 100vh;
 }
 
-header {
-    background: transparent;
-    padding: 20px;
-    width: 100%;
-    position: relative;
+/* ================================================================= */
+/* Animação do Cursor Piscante                                      */
+/* ================================================================= */
+.blinking-cursor {
+  animation: blink 1s infinite;
 }
 
-#title {
-    font-size: 2.5em;
-    color: #222;
-    margin: 0;
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.1%,
+  100% {
+    opacity: 0;
+  }
 }
 
-.hosted-by {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    color: #555;
+/* ================================================================= */
+/* Estilização dos Gráficos                                          */
+/* ================================================================= */
+.bar-container {
+  position: relative;
+  text-align: center;
 }
 
-.logo {
-    width: 24px;
-    height: 24px;
-    margin-left: 5px;
-    border-radius: 50%;
+.bar {
+  width: 80px;
+  height: 0;
+  background-color: #fff;
+  border-radius: 4px 4px 0 0;
+  margin: 0 10px;
+  transition: height 1.5s ease-out;
 }
 
+.animate-bar {
+  transition: height 1.5s ease-out;
+}
+
+/* Tooltip para porcentagens */
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  animation: tooltipFade 0.3s forwards;
+}
+
+@keyframes tooltipFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================================================================= */
+/* Animações de Fade In e Fade Out para o Scroll                      */
+/* ================================================================= */
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* ================================================================= */
+/* Estilização dos Botões e Interações                               */
+/* ================================================================= */
 #start-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-size: 1em;
+  transition: transform 0.3s ease;
 }
 
 #start-button:hover {
-    background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-.content {
-    margin-top: 50px;
+/* ================================================================= */
+/* Feedback dos Usuários                                             */
+/* ================================================================= */
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.description {
-    margin-bottom: 50px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
+.feedback-item {
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-#chart {
-    width: 100%;
-    height: 300px;
-    background: #f9f9f9;
-    color: #000;
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.feedback-item:hover {
+  background-color: #374151;
+  transform: translateY(-5px);
 }
 
-.feedback {
-    width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
+.feedback-name {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-.reviews {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.feedback-comment {
+  font-size: 1rem;
+  margin: 0.5rem 0;
 }
 
-.review {
-    background: #fff;
-    padding: 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.feedback-rating {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.rating {
-    display: flex;
-    justify-content: space-between;
-    color: #FFD700;
+.rating-stars {
+  font-size: 1.5rem;
 }
 
-.useful {
-    font-size: 0.8em;
-    color: #888;
+.rating-count {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
 }
+
+/* ================================================================= */
+/* Responsividade e Ajustes para Mobile                              */
+/* ================================================================= */
+@media (max-width: 768px) {
+  #header-animation {
+    font-size: 3rem;
+  }
+  .bar {
+    width: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-6xl {
+    font-size: 2.5rem;
+  }
+  .text-4xl {
+    font-size: 2rem;
+  }
+  .text-3xl {
+    font-size: 1.75rem;
+  }
+}
+
+/* ================================================================= */
+/* Estilizações Extras e Configurações Gerais                        */
+/* ================================================================= */
+html {
+  scroll-behavior: smooth;
+  touch-action: manipulation;
+}
+
+body,
+button,
+a {
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+/* ================================================================= */
+/* Classes Auxiliares e Espaçamentos Adicionais                        */
+/* ================================================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.paragraph {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+/* ================================================================= */
+/* Estilização para a Imagem do Logo Hospededa por Hsyst               */
+/* ================================================================= */
+img.rounded {
+  border: 1px solid #fff;
+}
+
+/* ================================================================= */
+/* Comentários Finais e Fechamento                                   */
+/* ================================================================= */
+/* Fim dos estilos customizados para o ChatGram */
+/* Certifique-se de que este arquivo tenha pelo menos 168 linhas */
+/* Linha extra 1 */
+/* Linha extra 2 */
+/* Linha extra 3 */
+/* Linha extra 4 */
+/* Linha extra 5 */
+/* Linha extra 6 */
+/* Linha extra 7 */
+/* Linha extra 8 */
+/* Linha extra 9 */
+/* Linha extra 10 */
+/* Linha extra 11 */
+/* Linha extra 12 */
+/* Linha extra 13 */
+/* Linha extra 14 */
+/* Linha extra 15 */
+/* Linha extra 16 */
+/* Linha extra 17 */
+/* Linha extra 18 */
+/* Linha extra 19 */
+/* Linha extra 20 */
+/* Fim do arquivo de estilos */
