@@ -1,222 +1,200 @@
 /* Reset e configuração global... */
 * {
-  margin: 0
-  padding: 0
-  box-sizing: border-box
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-  font-family: 'Arial', sans-serif
-  background: linear-gradient(135deg, #111, #333)
-  color: #fff
-  line-height: 1.6
-  min-height: 100vh
-  overflow-x: hidden
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Cabeçalho e container principal... */
 header {
-  width: 100%
-  padding: 2rem 1rem
-  display: flex
-  flex-direction: column
-  align-items: center
-  border-bottom: 2px solid #444
-  margin-bottom: 2rem
-  background: linear-gradient(135deg, #000, #222)
+  width: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid #444;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #000, #222);
 }
 .header-container {
-  width: 90%
-  max-width: 1200px
-  display: flex
-  flex-direction: column
-  align-items: center
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Estilos do título e animação de digitação... */
 .title-container {
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 h1 {
-  font-size: 3rem
-  letter-spacing: 2px
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7)
-  white-space: nowrap
-  overflow: hidden
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
 }
 #cursor {
-  font-weight: bold
-  animation: blink 1s infinite
+  font-weight: bold;
+  animation: blink 1s infinite;
 }
 @keyframes blink {
-  0%, 50% { opacity: 1 }
-  51%, 100% { opacity: 0 }
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 /* Botão Start estilizado com degradê e transição... */
 #startBtn {
-  background: linear-gradient(45deg, #fff, #ccc)
-  border: none
-  padding: 1rem 2rem
-  font-size: 1.2rem
-  color: #000
-  cursor: pointer
-  border-radius: 5px
-  transition: background 0.3s, transform 0.3s
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5)
+  background: linear-gradient(45deg, #fff, #ccc);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 #startBtn:hover {
-  background: linear-gradient(45deg, #ccc, #fff)
-  transform: scale(1.05)
+  background: linear-gradient(45deg, #ccc, #fff);
+  transform: scale(1.05);
 }
 
 /* Seções gerais do site... */
 section {
-  width: 100%
-  padding: 3rem 1rem
-  margin: 2rem 0
-  display: flex
-  justify-content: center
+  width: 100%;
+  padding: 3rem 1rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
 }
 .content, .graph-container, .feedback-container {
-  width: 90%
-  max-width: 1000px
-  background: rgba(0, 0, 0, 0.5)
-  padding: 2rem
-  border-radius: 10px
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7)
-  animation: fadeIn 1s ease-in-out
+  width: 90%;
+  max-width: 1000px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 1s ease-in-out;
 }
 .content h2, .graph-container h2, .feedback-container h2 {
-  font-size: 2.5rem
-  margin-bottom: 1rem
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5)
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Animação de Fade In para as seções... */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px) }
-  to { opacity: 1; transform: translateY(0) }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Estilização da seção do gráfico... */
 .graph-container {
-  text-align: center
+  text-align: center;
 }
 .bar-chart {
-  display: flex
-  justify-content: space-around
-  align-items: flex-end
-  height: 300px
-  margin-top: 2rem
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 300px;
+  margin-top: 2rem;
 }
 .bar {
-  width: 50px
-  background: linear-gradient(180deg, #fff, #777)
-  border-radius: 5px 5px 0 0
-  animation: grow 2s ease-in-out infinite alternate
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6)
+  width: 50px;
+  background: linear-gradient(180deg, #fff, #777);
+  border-radius: 5px 5px 0 0;
+  animation: grow 2s ease-in-out infinite alternate;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
-.bar:nth-child(1) { animation-delay: var(--delay) }
-.bar:nth-child(2) { animation-delay: var(--delay) }
-.bar:nth-child(3) { animation-delay: var(--delay) }
-.bar:nth-child(4) { animation-delay: var(--delay) }
-.bar:nth-child(5) { animation-delay: var(--delay) }
-.bar:nth-child(6) { animation-delay: var(--delay) }
+.bar:nth-child(1) { animation-delay: 0.2s; }
+.bar:nth-child(2) { animation-delay: 0.4s; }
+.bar:nth-child(3) { animation-delay: 0.6s; }
+.bar:nth-child(4) { animation-delay: 0.8s; }
+.bar:nth-child(5) { animation-delay: 1s; }
+.bar:nth-child(6) { animation-delay: 1.2s; }
 @keyframes grow {
-  0% { height: 50px }
-  100% { height: 280px }
+  0% { height: 50px; }
+  100% { height: 280px; }
 }
 
 /* Estilização da seção de Feedback... */
 .feedback-container {
-  margin-top: 2rem
+  margin-top: 2rem;
 }
 .feedback-box {
-  background: rgba(255, 255, 255, 0.1)
-  padding: 1.5rem
-  border-radius: 10px
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5)
-  max-height: 300px
-  overflow-y: auto
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  max-height: 300px;
+  overflow-y: auto;
 }
 .feedback-item {
-  margin-bottom: 1rem
-  padding-bottom: 0.5rem
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .feedback-item:last-child {
-  border-bottom: none
+  border-bottom: none;
 }
 .username {
-  font-weight: bold
-  margin-right: 0.5rem
-  color: #ccc
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: #ccc;
 }
 .comment {
-  font-style: italic
-  color: #eee
+  font-style: italic;
+  color: #eee;
 }
 
 /* Customização da scrollbar na caixa de feedback... */
 .feedback-box::-webkit-scrollbar {
-  width: 8px
+  width: 8px;
 }
 .feedback-box::-webkit-scrollbar-track {
-  background: #222
-  border-radius: 10px
+  background: #222;
+  border-radius: 10px;
 }
 .feedback-box::-webkit-scrollbar-thumb {
-  background: #555
-  border-radius: 10px
+  background: #555;
+  border-radius: 10px;
 }
 
 /* Ajustes para dispositivos móveis... */
 @media (max-width: 768px) {
-  h1 { font-size: 2.5rem }
-  #startBtn { font-size: 1rem; padding: 0.8rem 1.5rem }
-  .content h2, .graph-container h2, .feedback-container h2 { font-size: 2rem }
-  .bar-chart { height: 200px }
-  .bar { width: 30px }
+  h1 { font-size: 2.5rem; }
+  #startBtn { font-size: 1rem; padding: 0.8rem 1.5rem; }
+  .content h2, .graph-container h2, .feedback-container h2 { font-size: 2rem; }
+  .bar-chart { height: 200px; }
+  .bar { width: 30px; }
 }
 
 /* Efeitos extras para um visual moderno... */
 section {
-  border-top: 1px solid #444
-  margin-top: 2rem
+  border-top: 1px solid #444;
+  margin-top: 2rem;
 }
 .content, .graph-container, .feedback-container {
-  background: rgba(0, 0, 0, 0.55)
-  padding: 2rem 3rem
-  border-radius: 15px
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8)
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
 }
 #startBtn {
-  border-radius: 50px
-  padding: 1rem 3rem
-  font-weight: bold
-  letter-spacing: 1px
-}
-h1 {
-  position: relative
-  overflow: hidden
-  border-right: 2px solid rgba(255, 255, 255, 0.75)
-  white-space: nowrap
-}
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-.title-container h1 {
-  animation: typing 3s steps(20) 1s forwards
-}
-@keyframes cursorBlink {
-  0% { border-color: rgba(255, 255, 255, 0.75) }
-  50% { border-color: transparent }
-  100% { border-color: rgba(255, 255, 255, 0.75) }
-}
-#cursor {
-  animation: cursorBlink 1s infinite
+  border-radius: 50px;
+  padding: 1rem 3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-/* Comentários extras e organização do código para manutenção futura... */
 /* Fim do arquivo CSS avançado e detalhado para o ChatGram... */
