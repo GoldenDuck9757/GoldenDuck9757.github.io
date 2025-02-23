@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #000, #333, #555, #888);
+  background: linear-gradient(to bottom, #000, #111, #222, #333);
 }
 
 /* Hero Section */
@@ -80,7 +80,7 @@ section {
 .content,
 .graph-container,
 .reviews-container {
-  background: linear-gradient(to bottom, #444, #555);
+  background: linear-gradient(to bottom, #333, #444);
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 15px;
@@ -108,7 +108,7 @@ section {
 }
 .bar {
   width: 30%;
-  background: linear-gradient(180deg, #fff, #777);
+  background: linear-gradient(180deg, #999, #777);
   border-radius: 5px 5px 0 0;
   position: relative;
   height: 0;
