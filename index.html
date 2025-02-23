@@ -1,28 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGram - Apresentação Corporativa</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <h1>Hey, você tá aqui, né?</h1>
-            <p>Wow, que incrível! Já que está aqui, dá uma olhada no meu repositório do Github, rs... Sério, dá uma olhada:</p>
-            <a href="https://github.com/GoldenDuck9757" target="_blank" class="button">Visitar Github</a>
-        </div>
+  <header class="hero">
+    <div class="hero-content">
+      <h1 id="main-title">ChatGram</h1>
+      <div class="host-info">
+        <span class="host-text">hosteado por Hsyst</span>
+        <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst Logo" class="host-logo">
+      </div>
+      <p class="tagline">Sua plataforma de comunicação anônima</p>
+      <button id="startButton">Iniciar</button>
     </div>
+  </header>
+  <main>
+    <section class="section" id="about">
+      <h2>Sobre o ChatGram</h2>
+      <p>O ChatGram é uma plataforma de comunicação que prioriza a privacidade e o anonimato dos usuários. Com uma interface intuitiva e recursos que garantem conversas seguras, o ChatGram permite que você se conecte sem expor sua identidade. Junte-se a nós e descubra uma nova forma de se comunicar!</p>
+    </section>
+    <section class="section" id="privacy">
+      <h2>Privacidade &amp; Segurança</h2>
+      <p>Nossa tecnologia utiliza criptografia de ponta para proteger seus dados e garantir a confidencialidade em todas as interações. Sua segurança é nossa prioridade.</p>
+    </section>
+    <section class="section" id="graph">
+      <h2>Usuários Simultâneos</h2>
+      <div id="animatedGraph"></div>
+    </section>
+    <section class="section" id="feedback">
+      <h2>Resenhas</h2>
+      <div class="feedback-box">
+        <div class="feedback">
+          <div class="name">Anônimo</div>
+          <div class="comment">Ótima plataforma! Recomendo a todos!</div>
+          <div class="feedback-footer">
+            <div class="star-rating">☆☆☆☆☆</div>
+            <div class="useful-count">400 úteis</div>
+          </div>
+        </div>
+        <div class="feedback">
+          <div class="name">Anônimo</div>
+          <div class="comment">Muito útil e fácil de usar!</div>
+          <div class="feedback-footer">
+            <div class="star-rating">☆☆☆☆☆</div>
+            <div class="useful-count">400 úteis</div>
+          </div>
+        </div>
+        <div class="feedback">
+          <div class="name">Anônimo</div>
+          <div class="comment">Adorei a experiência de uso!</div>
+          <div class="feedback-footer">
+            <div class="star-rating">☆☆☆☆</div>
+            <div class="useful-count">400 úteis</div>
+          </div>
+        </div>
+        <div class="feedback">
+          <div class="name">Anônimo</div>
+          <div class="comment">Excelente para se comunicar de forma anônima!</div>
+          <div class="feedback-footer">
+            <div class="star-rating">☆☆☆☆☆</div>
+            <div class="useful-count">400 úteis</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const title = document.getElementById('main-title');
+    const phrases = ["ChatGram", "Privacidade", "Anonimato"];
+    let currentPhrase = 0;
+    let currentIndex = 0;
+    let isDeleting = false;
+    function type() {
+      const phrase = phrases[currentPhrase];
+      title.textContent = phrase.substring(0, currentIndex);
+      if (!isDeleting) {
+        if (currentIndex < phrase.length) {
+          currentIndex++;
+          setTimeout(type, 200);
+        } else {
+          setTimeout(() => {
+            isDeleting = true;
+            setTimeout(type, 100);
+          }, 4000);
+        }
+      } else {
+        if (currentIndex > 0) {
+          currentIndex--;
+          setTimeout(type, 100);
+        } else {
+          isDeleting = false;
+          currentPhrase = (currentPhrase + 1) % phrases.length;
+          setTimeout(type, 200);
+        }
+      }
+    }
+    setTimeout(type, 2000);
 
-    <header class="main-header">
-        <h1>Bem-vindo ao meu site incrível!</h1>
-    </header>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.section');
+      const observerOptions = {
+        root: null,
+        threshold: 0.2
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+            entry.target.classList.remove('disappear');
+          } else {
+            entry.target.classList.add('disappear');
+            entry.target.classList.remove('appear');
+          }
+        });
+      }, observerOptions);
+      sections.forEach(section => observer.observe(section));
 
-    <main>
-        <section class="content">
-            <p>Este é apenas o começo, explore mais no meu Github!</p>
-        </section>
-    </main>
+      const graph = document.getElementById('animatedGraph');
+      const bar = document.createElement('div');
+      bar.style.position = 'absolute';
+      bar.style.bottom = '0';
+      bar.style.width = '100%';
+      bar.style.height = '0';
+      bar.style.backgroundColor = '#4caf50';
+      bar.style.transition = 'height 2s ease-in-out';
+      graph.appendChild(bar);
+
+      setTimeout(() => {
+        bar.style.height = '90%';
+      }, 500);
+    });
+  </script>
 </body>
 </html>
