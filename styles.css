@@ -1,4 +1,3 @@
-/* Reset e configurações globais */
 * {
   margin: 0;
   padding: 0;
@@ -25,8 +24,6 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-
-/* Divider: linha fina branca */
 .divider {
   border: none;
   height: 1px;
@@ -34,8 +31,6 @@ body {
   opacity: 0.2;
   margin: 20px 0;
 }
-
-/* Header */
 #header {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -49,16 +44,20 @@ body {
   animation: blink 0.7s infinite;
 }
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .tagline {
   font-size: 1.25rem;
   color: #ccc;
 }
-
-/* Host Info */
 .host-info div {
   display: flex;
   align-items: center;
@@ -71,8 +70,6 @@ body {
   border-radius: 3px;
   border: 1px solid #555;
 }
-
-/* Botão Start */
 #start-button {
   padding: 10px 30px;
   font-size: 1.2rem;
@@ -87,8 +84,6 @@ body {
   transform: scale(1.05);
   background: linear-gradient(90deg, #777, #999);
 }
-
-/* Seções */
 section {
   padding: 40px 20px;
   text-align: center;
@@ -103,8 +98,6 @@ section p {
   line-height: 1.6;
   color: #ddd;
 }
-
-/* Resenhas */
 #reviews .reviews-container {
   margin-top: 20px;
 }
@@ -142,8 +135,6 @@ section p {
   font-size: 0.8rem;
   color: #ccc;
 }
-
-/* Responsividade */
 @media (max-width: 768px) {
   #main-title {
     font-size: 2.5rem;
