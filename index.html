@@ -1,89 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGram</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const title = document.getElementById("title");
-            const cursor = document.getElementById("cursor");
-            const startBtn = document.getElementById("startBtn");
-
-            const animations = ["anonimato", "privacidade", "criptografia", "ChatGram"];
-            let index = 0;
-
-            function animateText() {
-                title.innerHTML = ""; // Limpa o texto atual
-                const currentText = animations[index];
-                let charIndex = 0;
-
-                const typing = setInterval(() => {
-                    if (charIndex < currentText.length) {
-                        title.innerHTML += currentText.charAt(charIndex);
-                        charIndex++;
-                    } else {
-                        clearInterval(typing);
-                        setTimeout(() => {
-                            title.innerHTML = ""; // Limpa o texto
-                            index = (index + 1) % animations.length; // Atualiza o índice
-                            animateText(); // Chama a função recursivamente
-                        }, 1000); // Espera antes de começar a próxima animação
-                    }
-                }, 200); // Velocidade de digitação
-
-                cursor.style.display = "block"; // Mostra o cursor
-                setTimeout(() => {
-                    cursor.style.display = "none"; // Oculta o cursor
-                }, 1000);
-            }
-
-            setTimeout(() => {
-                animateText();
-            }, 3000); // Espera 3 segundos para iniciar a animação
-
-            startBtn.addEventListener("click", () => {
-                window.location.href = "https://seusite.com"; // Troque pelo seu site
-            });
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ChatGram</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="title-container">
-                <h1 id="title">ChatGram<span id="cursor">|</span></h1>
-            </div>
-            <button id="startBtn">Start</button>
-        </div>
-    </header>
+  <header class="hero">
+    <div class="hero-content">
+      <h1 id="title">ChatGram<span id="cursor">|</span></h1>
+      <div class="host-info">
+        <span>hosteado por Hsyst</span>
+        <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst Logo" class="host-logo">
+      </div>
+    </div>
+    <button id="startBtn">Start</button>
+  </header>
 
-    <section class="content">
-        <h2>Sobre o ChatGram</h2>
-        <p>ChatGram é uma plataforma inovadora que prioriza o anonimato e a privacidade dos usuários...</p>
-    </section>
+  <section class="content fade">
+    <h2>Sobre o ChatGram</h2>
+    <p>
+      ChatGram é uma plataforma inovadora que prioriza o anonimato e a privacidade dos usuários, proporcionando uma experiência segura, moderna e única...
+    </p>
+  </section>
 
-    <section class="graph-container">
-        <h2>Gráfico de Usuários Simultâneos</h2>
-        <div class="bar-chart">
-            <div class="bar" style="height: 250px;"></div>
-            <div class="bar" style="height: 200px;"></div>
-            <div class="bar" style="height: 150px;"></div>
-            <div class="bar" style="height: 300px;"></div>
-            <div class="bar" style="height: 100px;"></div>
-            <div class="bar" style="height: 220px;"></div>
-        </div>
-    </section>
+  <section class="graph-container fade">
+    <h2>Gráfico de Usuários Simultâneos</h2>
+    <div class="chart">
+      <div class="bar" data-percentage="20">
+        <span class="bar-label">Não gostou do site</span>
+        <span class="bar-percentage">20%</span>
+      </div>
+      <div class="bar" data-percentage="50">
+        <span class="bar-label">Neutro</span>
+        <span class="bar-percentage">50%</span>
+      </div>
+      <div class="bar" data-percentage="80">
+        <span class="bar-label">Gostou</span>
+        <span class="bar-percentage">80%</span>
+      </div>
+    </div>
+  </section>
 
-    <section class="feedback-container">
-        <h2>Feedback dos Usuários</h2>
-        <div class="feedback-box">
-            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Ótimo serviço, muito seguro!</span></div>
-            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Adoro a privacidade que oferece.</span></div>
-            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Interface muito bonita e funcional.</span></div>
-            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Recomendo para todos!</span></div>
+  <section class="reviews-container fade">
+    <h2>Avaliações</h2>
+    <div class="reviews">
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
         </div>
-    </section>
+        <div class="review-content">
+          <p>O site é incrível e super seguro!</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">23 pessoas acharam isso útil</div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
+        </div>
+        <div class="review-content">
+          <p>Interface moderna e fácil de usar.</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">45 pessoas acharam isso útil</div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
+        </div>
+        <div class="review-content">
+          <p>Privacidade total e design impressionante.</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">12 pessoas acharam isso útil</div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-header">
+          <span class="review-username">Anônimo</span>
+        </div>
+        <div class="review-content">
+          <p>Melhor plataforma de comunicação que já usei.</p>
+        </div>
+        <div class="review-footer">
+          <div class="stars">☆☆☆☆</div>
+          <div class="helpful-count">67 pessoas acharam isso útil</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Animação de digitação natural com cursor piscando
+    document.addEventListener("DOMContentLoaded", () => {
+      const title = document.getElementById("title");
+      const cursor = document.getElementById("cursor");
+      const texts = ["ChatGram", "anonimato", "privacidade", "criptografia", "ChatGram"];
+      let textIndex = 0, charIndex = 0;
+      let isDeleting = false;
+      const typingSpeed = 150, pauseDelay = 1000;
+
+      function type() {
+        const currentText = texts[textIndex];
+        if (!isDeleting) {
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent;
+          if (charIndex < currentText.length) {
+            charIndex++;
+            setTimeout(type, typingSpeed);
+          } else {
+            isDeleting = true;
+            setTimeout(type, pauseDelay);
+          }
+        } else {
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent;
+          if (charIndex > 0) {
+            charIndex--;
+            setTimeout(type, typingSpeed / 2);
+          } else {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(type, typingSpeed);
+          }
+        }
+      }
+      type();
+
+      // Botão Start
+      document.getElementById("startBtn").addEventListener("click", () => {
+        window.location.href = "https://seusite.com";
+      });
+
+      // Animação de fade in/out ao rolar a página
+      const faders = document.querySelectorAll('.fade');
+      const observerOptions = { threshold: 0.3 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }, observerOptions);
+      faders.forEach(fader => observer.observe(fader));
+
+      // Animação do gráfico
+      const bars = document.querySelectorAll('.bar');
+      window.addEventListener('load', () => {
+        bars.forEach((bar, index) => {
+          setTimeout(() => {
+            bar.style.height = bar.getAttribute('data-percentage') + '%';
+          }, index * 300);
+        });
+      });
+      // Exibir porcentagem ao passar o mouse ou toque
+      bars.forEach(bar => {
+        bar.addEventListener('mouseover', () => {
+          bar.querySelector('.bar-percentage').style.opacity = 1;
+        });
+        bar.addEventListener('mouseout', () => {
+          bar.querySelector('.bar-percentage').style.opacity = 0;
+        });
+        bar.addEventListener('touchstart', () => {
+          bar.querySelector('.bar-percentage').style.opacity = 1;
+        });
+        bar.addEventListener('touchend', () => {
+          bar.querySelector('.bar-percentage').style.opacity = 0;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
