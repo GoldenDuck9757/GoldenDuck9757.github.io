@@ -12,20 +12,31 @@
   </head>
   <body>
     <div class="container mx-auto">
-      <!-- Header com animação de digitação -->
+      <!-- Header com animação e informações -->
       <header id="header" class="text-center py-12">
-        <h1 id="main-title" class="text-5xl font-bold mb-4">
+        <h1 id="main-title" class="text-5xl font-bold mb-2">
           ChatGram<span id="cursor" class="text-5xl font-bold">|</span>
         </h1>
-        <div
-          class="host-info flex items-center justify-center gap-2 mb-6"
-        >
-          <img
-            src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4"
-            alt="Hsyst Logo"
-            class="w-8 h-8 rounded border border-gray-600"
-          />
-          <span class="text-lg text-gray-300">hosteado por Hsyst</span>
+        <p class="tagline mb-4">Sua privacidade é a nossa prioridade</p>
+        <div class="host-info text-center space-y-2 mb-6">
+          <div class="flex items-center justify-center gap-2">
+            <img
+              src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4"
+              alt="Hsyst Logo"
+              class="rounded border border-gray-600"
+            />
+            <span class="text-sm text-gray-300">hosteado por Hsyst</span>
+          </div>
+          <div class="flex items-center justify-center gap-2">
+            <img
+              src="https://avatars.githubusercontent.com/u/187966934?s=200&v=4"
+              alt="OpSystemsInc Logo"
+              class="rounded border border-gray-600"
+            />
+            <span class="text-sm text-gray-300"
+              >contribuição de OpSystemsInc</span
+            >
+          </div>
         </div>
         <button
           id="start-button"
@@ -44,10 +55,10 @@
         </h2>
         <p class="text-gray-200 leading-relaxed max-w-2xl mx-auto">
           O ChatGram oferece uma experiência única de comunicação com foco
-          na privacidade e anonimato. Nossa plataforma integra recursos de
-          criptografia de ponta para garantir que suas conversas permaneçam
-          seguras e confidenciais. Explore as funcionalidades e descubra uma
-          nova forma de interagir online.
+          na privacidade e anonimato... Nossa plataforma integra recursos de
+          criptografia de ponta para garantir que suas conversas permaneçam seguras
+          e confidenciais. Explore as funcionalidades e descubra uma nova forma de
+          interagir online.
         </p>
       </section>
 
@@ -60,7 +71,7 @@
         </h2>
         <p class="text-gray-200 leading-relaxed max-w-2xl mx-auto">
           Priorizamos a segurança dos seus dados com protocolos avançados e
-          criptografia robusta. Nossos sistemas garantem que suas informações
+          criptografia robusta... Nossos sistemas garantem que suas informações
           estejam protegidas contra acessos não autorizados, mantendo sua
           privacidade sempre preservada.
         </p>
@@ -75,9 +86,7 @@
           class="reviews-container grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           <!-- Review 1 -->
-          <div
-            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
-          >
+          <div class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left">
             <div class="review-header flex items-center gap-3 mb-3">
               <svg
                 class="w-8 h-8 text-gray-400"
@@ -91,19 +100,19 @@
               <span class="font-semibold text-gray-300">Anônimo</span>
             </div>
             <p class="text-gray-200 mb-4">
-              A experiência é incrível, a interface é intuitiva e a
-              privacidade é garantida.
+              A experiência é incrível, a interface é intuitiva e a privacidade é garantida.
             </p>
-            <div class="review-footer text-right">
-              <span class="text-sm text-gray-400"
-                >42 pessoas acharam isso útil</span
-              >
+            <div class="review-rating flex items-center justify-between">
+              <div class="stars text-yellow-400 text-lg">
+                ★★★★☆
+              </div>
+              <div class="useful text-sm text-gray-400">
+                42 pessoas acharam isso útil
+              </div>
             </div>
           </div>
           <!-- Review 2 -->
-          <div
-            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
-          >
+          <div class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left">
             <div class="review-header flex items-center gap-3 mb-3">
               <svg
                 class="w-8 h-8 text-gray-400"
@@ -117,19 +126,19 @@
               <span class="font-semibold text-gray-300">Anônimo</span>
             </div>
             <p class="text-gray-200 mb-4">
-              Design moderno e funcional, mas ainda pode melhorar em alguns
-              aspectos.
+              Design moderno e funcional, mas ainda pode melhorar em alguns aspectos.
             </p>
-            <div class="review-footer text-right">
-              <span class="text-sm text-gray-400"
-                >30 pessoas acharam isso útil</span
-              >
+            <div class="review-rating flex items-center justify-between">
+              <div class="stars text-yellow-400 text-lg">
+                ★★★☆☆
+              </div>
+              <div class="useful text-sm text-gray-400">
+                30 pessoas acharam isso útil
+              </div>
             </div>
           </div>
           <!-- Review 3 -->
-          <div
-            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
-          >
+          <div class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left">
             <div class="review-header flex items-center gap-3 mb-3">
               <svg
                 class="w-8 h-8 text-gray-400"
@@ -143,19 +152,19 @@
               <span class="font-semibold text-gray-300">Anônimo</span>
             </div>
             <p class="text-gray-200 mb-4">
-              A segurança e o anonimato realmente fazem a diferença, parabéns
-              pelo projeto.
+              A segurança e o anonimato realmente fazem a diferença, parabéns pelo projeto.
             </p>
-            <div class="review-footer text-right">
-              <span class="text-sm text-gray-400"
-                >55 pessoas acharam isso útil</span
-              >
+            <div class="review-rating flex items-center justify-between">
+              <div class="stars text-yellow-400 text-lg">
+                ★★★★★
+              </div>
+              <div class="useful text-sm text-gray-400">
+                55 pessoas acharam isso útil
+              </div>
             </div>
           </div>
           <!-- Review 4 -->
-          <div
-            class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left"
-          >
+          <div class="review bg-gray-800 p-6 rounded-lg shadow-lg text-left">
             <div class="review-header flex items-center gap-3 mb-3">
               <svg
                 class="w-8 h-8 text-gray-400"
@@ -169,13 +178,15 @@
               <span class="font-semibold text-gray-300">Anônimo</span>
             </div>
             <p class="text-gray-200 mb-4">
-              Interface limpa e objetiva, realmente atendeu todas as minhas
-              expectativas.
+              Interface limpa e objetiva, realmente atendeu todas as minhas expectativas.
             </p>
-            <div class="review-footer text-right">
-              <span class="text-sm text-gray-400"
-                >23 pessoas acharam isso útil</span
-              >
+            <div class="review-rating flex items-center justify-between">
+              <div class="stars text-yellow-400 text-lg">
+                ★★★★☆
+              </div>
+              <div class="useful text-sm text-gray-400">
+                23 pessoas acharam isso útil
+              </div>
             </div>
           </div>
         </div>
@@ -183,7 +194,7 @@
     </div>
 
     <script>
-      // Animação de digitação para o título do header
+      // Animação de digitação para o título com cursor piscante
       const titleElement = document.getElementById("main-title");
       const cursorElement = document.getElementById("cursor");
       const phrases = ["anonimato", "privacidade", "criptografia", "ChatGram"];
