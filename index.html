@@ -1,41 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>ChatGram</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div class="container">
-        <header id="header">
-            <h1 id="title">ChatGram</h1>
-            <p class="hosted-by">Hosted by <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst logo" class="logo"> Hsyst</p>
-            <button id="start-button">Start</button>
-        </header>
-        <section class="content">
-            <div class="description">
-                <h2>About ChatGram</h2>
-                <p>ChatGram is a privacy-focused chat application that ensures anonymity and secure communication through encryption.</p>
-                <h2>Privacy</h2>
-                <p>We prioritize your privacy by implementing top-notch security measures and encryption protocols.</p>
-                <div id="chart"></div>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Inline styles complementares, se necessário */
+    </style>
+  </head>
+  <body class="bg-black text-white overflow-x-hidden">
+    <!-- ================================================================= -->
+    <!-- Seção Superior: Cabeçalho com Gradiente e Animação de Texto -->
+    <!-- ================================================================= -->
+    <section id="top-section" class="min-h-screen flex flex-col items-center justify-center relative gradient-top">
+      <!-- Cabeçalho Animado -->
+      <div id="header-animation" class="text-6xl font-bold mb-4 tracking-wider">
+        ChatGram<span id="cursor" class="blinking-cursor">|</span>
+      </div>
+      <!-- Informações de Hospedagem -->
+      <div class="text-lg flex items-center gap-2 mb-8">
+        <span>hosteado por Hsyst</span>
+        <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst Logo" class="w-8 h-8 rounded" />
+      </div>
+      <!-- Botão Start -->
+      <a
+        id="start-button"
+        href="https://seusite.com"
+        class="px-6 py-3 bg-white text-black font-semibold rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
+        >Start</a
+      >
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- Seção de Informações: Sobre o ChatGram, Gráfico e Feedback -->
+    <!-- ================================================================= -->
+    <section id="info-section" class="min-h-screen flex flex-col justify-center items-center gradient-bottom opacity-0">
+      <!-- Sobre o ChatGram -->
+      <div class="max-w-3xl p-4 text-center">
+        <h2 class="text-4xl font-bold mb-4">Sobre o ChatGram</h2>
+        <p class="mb-6">
+          O ChatGram é uma plataforma inovadora que prioriza a privacidade e a segurança.
+          Explore funcionalidades incríveis, gráficos interativos e um sistema de feedback dinâmico,
+          tudo com um design moderno e responsivo.
+        </p>
+      </div>
+      <!-- Seção do Gráfico Fictício -->
+      <div id="graph-section" class="w-full max-w-4xl p-4">
+        <h3 class="text-3xl font-semibold text-center mb-6">Avaliação do Site</h3>
+        <div class="flex justify-around items-end h-64 relative">
+          <!-- Barra: Não Gostou do Site -->
+          <div class="bar-container group">
+            <div class="bar bg-red-500 rounded-t" data-percentage="15"></div>
+            <p class="text-center mt-2">Não gostou do site</p>
+            <div class="tooltip hidden group-hover:block">15%</div>
+          </div>
+          <!-- Barra: Neutro -->
+          <div class="bar-container group">
+            <div class="bar bg-yellow-500 rounded-t" data-percentage="40"></div>
+            <p class="text-center mt-2">Neutro</p>
+            <div class="tooltip hidden group-hover:block">40%</div>
+          </div>
+          <!-- Barra: Gostou -->
+          <div class="bar-container group">
+            <div class="bar bg-green-500 rounded-t" data-percentage="75"></div>
+            <p class="text-center mt-2">Gostou</p>
+            <div class="tooltip hidden group-hover:block">75%</div>
+          </div>
+        </div>
+      </div>
+      <!-- Seção de Feedback dos Usuários -->
+      <div id="feedback-section" class="w-full max-w-3xl p-4 mt-12">
+        <h3 class="text-3xl font-semibold text-center mb-6">Feedback dos Usuários</h3>
+        <div class="feedback-container space-y-6">
+          <!-- Feedback 1 -->
+          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
+            <span class="feedback-name font-bold">anônimo</span>
+            <p class="feedback-comment my-2">
+              O site é surpreendente e a experiência é incrível!
+            </p>
+            <div class="feedback-rating flex justify-end items-center">
+              <span class="rating-stars text-2xl">☆☆☆☆</span>
+              <span class="rating-count ml-2 text-sm">23 pessoas acharam isso útil</span>
             </div>
-            <div class="feedback">
-                <h2>Reviews</h2>
-                <div class="reviews">
-                    <div class="review">
-                        <p><i class="fas fa-user"></i> User: Anonymous</p>
-                        <p><i class="fas fa-comment"></i> Comment: Excellent!</p>
-                        <div class="rating">★★★★★ <span class="useful">10 people found this useful</span></div>
-                    </div>
-                    <!-- Add more reviews here -->
-                </div>
+          </div>
+          <!-- Feedback 2 -->
+          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
+            <span class="feedback-name font-bold">anônimo</span>
+            <p class="feedback-comment my-2">
+              Design moderno, mas poderia melhorar em algumas funcionalidades.
+            </p>
+            <div class="feedback-rating flex justify-end items-center">
+              <span class="rating-stars text-2xl">☆☆☆</span>
+              <span class="rating-count ml-2 text-sm">17 pessoas acharam isso útil</span>
             </div>
-        </section>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-</body>
+          </div>
+          <!-- Feedback 3 -->
+          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
+            <span class="feedback-name font-bold">anônimo</span>
+            <p class="feedback-comment my-2">
+              A interface é responsiva e muito bem feita, gostei bastante!
+            </p>
+            <div class="feedback-rating flex justify-end items-center">
+              <span class="rating-stars text-2xl">☆☆☆☆☆</span>
+              <span class="rating-count ml-2 text-sm">31 pessoas acharam isso útil</span>
+            </div>
+          </div>
+          <!-- Feedback 4 -->
+          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
+            <span class="feedback-name font-bold">anônimo</span>
+            <p class="feedback-comment my-2">
+              Simples e eficiente, exatamente o que eu precisava.
+            </p>
+            <div class="feedback-rating flex justify-end items-center">
+              <span class="rating-stars text-2xl">☆☆☆☆</span>
+              <span class="rating-count ml-2 text-sm">12 pessoas acharam isso útil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- JavaScript: Animações de Digitação, Scroll e Gráfico -->
+    <!-- ================================================================= -->
+    <script>
+      // Animação de digitação para o cabeçalho
+      const headerAnimation = document.getElementById("header-animation")
+      const cursor = document.getElementById("cursor")
+      const phrases = ["anonimato", "privacidade", "criptografia", "ChatGram"]
+      let phraseIndex = 0
+      let letterIndex = 0
+      function typePhrase() {
+        if (letterIndex < phrases[phraseIndex].length) {
+          headerAnimation.innerHTML =
+            phrases[phraseIndex].substring(0, letterIndex + 1) +
+            '<span id="cursor" class="blinking-cursor">|</span>'
+          letterIndex++
+          setTimeout(typePhrase, 150)
+        } else {
+          setTimeout(() => {
+            deletePhrase()
+          }, 1000)
+        }
+      }
+      function deletePhrase() {
+        if (letterIndex > 0) {
+          headerAnimation.innerHTML =
+            phrases[phraseIndex].substring(0, letterIndex - 1) +
+            '<span id="cursor" class="blinking-cursor">|</span>'
+          letterIndex--
+          setTimeout(deletePhrase, 100)
+        } else {
+          phraseIndex = (phraseIndex + 1) % phrases.length
+          setTimeout(typePhrase, 500)
+        }
+      }
+      // Inicia a animação após 3 segundos
+      setTimeout(() => {
+        headerAnimation.innerHTML = ""
+        letterIndex = 0
+        typePhrase()
+      }, 3000)
+
+      // Animação de fade in ao rolar a página
+      const infoSection = document.getElementById("info-section")
+      window.addEventListener("scroll", () => {
+        let scrollPos = window.scrollY
+        if (scrollPos > window.innerHeight * 0.5) {
+          infoSection.classList.add("fade-in")
+          infoSection.classList.remove("fade-out")
+        } else {
+          infoSection.classList.add("fade-out")
+          infoSection.classList.remove("fade-in")
+        }
+      })
+
+      // Animação do gráfico ao entrar na visualização
+      const graphSection = document.getElementById("graph-section")
+      const bars = document.querySelectorAll(".bar")
+      function animateGraph() {
+        let rect = graphSection.getBoundingClientRect()
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          bars.forEach((bar) => {
+            let percentage = bar.getAttribute("data-percentage")
+            bar.style.height = percentage + "%"
+            bar.classList.add("animate-bar")
+          })
+        }
+      }
+      window.addEventListener("scroll", animateGraph)
+      window.addEventListener("load", animateGraph)
+    </script>
+
+    <!-- ================================================================= -->
+    <!-- Espaço Extra para Permitir Rolagem e Exibir Animações -->
+    <!-- ================================================================= -->
+    <div style="height: 100vh;"></div>
+
+    <!-- ================================================================= -->
+    <!-- Fim do Documento HTML -->
+    <!-- ================================================================= -->
+  </body>
 </html>
