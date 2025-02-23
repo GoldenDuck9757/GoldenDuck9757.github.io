@@ -1,53 +1,51 @@
-/* Reset e configurações básicas */
+/* Reset e configurações globais */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html,
 body {
   width: 100%;
   height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #000000, #434343);
+  color: #eee;
   overflow-x: hidden;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #2c3e50, #3498db);
-  color: white;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
-/* Desabilitar zoom */
 body {
   touch-action: pan-y;
 }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-/* Header e Gradiente Superior */
+/* Divider: linha fina branca */
+.divider {
+  border: none;
+  height: 1px;
+  background: #fff;
+  opacity: 0.2;
+  margin: 0 20px;
+}
+
+/* Header */
 #header {
-  width: 100%;
-  min-height: 100vh;
-  background: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.header-content {
+  padding-top: 60px;
+  padding-bottom: 60px;
   text-align: center;
-  padding: 20px;
 }
-
 #main-title {
-  font-size: 2.5rem;
-  margin: 0;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 8px #000;
 }
-
 #cursor {
-  font-weight: 100;
-  font-size: 2.5rem;
   animation: blink 0.7s infinite;
 }
-
 @keyframes blink {
   0% {
     opacity: 1;
@@ -60,226 +58,56 @@ body {
   }
 }
 
-.host-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.host-info span {
-  font-size: 0.9rem;
-}
-
-.host-info img {
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid #555;
-}
-
-/* Botão Start */
-#start-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #3498db;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#start-button:hover {
-  background-color: #2980b9;
-}
-
-/* Seções Gerais */
-.section {
-  padding: 50px 20px;
+/* Seções */
+section {
+  padding: 40px 20px;
   text-align: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
 }
-
-.fade-in {
-  opacity: 1;
-}
-
-/* Info Section */
-#info-section {
-  background: linear-gradient(135deg, #222, #444);
-}
-
-#info-section h2 {
-  font-size: 2.5rem;
+section h2 {
   margin-bottom: 20px;
 }
-
-#info-section p {
-  font-size: 1rem;
+section p {
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-/* Graph Section */
-#graph-section {
-  background: linear-gradient(135deg, #333, #555);
+/* Resenhas */
+#reviews .reviews-container {
+  margin-top: 20px;
 }
-
-#graph-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.graph-container {
-  display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.graph-bar {
-  width: 30%;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.graph-bar:hover {
-  transform: scale(1.05);
-}
-
-.bar-fill {
-  width: 100%;
-  background-color: #3498db;
-  height: 0;
-  transition: height 0.5s ease-in-out;
-}
-
-.bar-label,
-.bar-tooltip {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 0.9rem;
-}
-
-.bar-label {
-  bottom: -25px;
-}
-
-.bar-tooltip {
-  top: -25px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 3px 6px;
-  border-radius: 5px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.graph-bar:hover .bar-tooltip {
-  opacity: 1;
-}
-
-/* Animação dos gráficos */
-.animate-bar .bar-fill {
-  height: var(--height);
-}
-
-/* Feedback Section */
-#feedback-section {
-  background: linear-gradient(135deg, #444, #666);
-}
-
-#feedback-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.feedback-container {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.feedback-box {
-  background: rgba(255, 255, 255, 0.1);
+.review {
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 8px;
   padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
-
-.feedback-box:hover {
+.review:hover {
   transform: translateY(-5px);
 }
-
-.feedback-box h3 {
-  font-size: 1.2rem;
+.review-header {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
-
-.feedback-box p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin-bottom: 20px;
+.review-header svg {
+  margin-right: 10px;
 }
-
-.feedback-rating {
-  text-align: right;
+.review p {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
 }
-
-.feedback-rating .stars {
-  font-size: 1rem;
-  color: #ff0;
-}
-
-.feedback-rating .useful-count {
-  font-size: 0.7rem;
+.review-footer {
+  font-size: 0.8rem;
   color: #ccc;
-  margin-top: 5px;
 }
 
-/* Espaçador extra para scroll */
-.spacer {
-  height: 100px;
-}
-
+/* Responsividade */
 @media (max-width: 768px) {
   #main-title {
     font-size: 2.5rem;
   }
-  #start-button {
-    font-size: 1rem;
-    padding: 8px 20px;
+  .container {
+    padding: 0 10px;
   }
-  .graph-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .graph-bar {
-    width: 80px;
-    height: 150px;
-  }
-}
-
-/* Comentários e espaçamentos extras para padronização */
-body::-webkit-scrollbar {
-  width: 8px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 4px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #222;
 }
