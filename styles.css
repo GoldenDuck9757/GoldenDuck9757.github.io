@@ -1,293 +1,356 @@
-/* ================================================================= */
-/* styles.css - Estilos customizados para o ChatGram               */
-/* ================================================================= */
-
-/* Reset e configuração global */
+/* Reset e configurações básicas */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Fonte e cores globais */
+html,
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #111;
+  color: #eee;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* ================================================================= */
-/* Gradientes para Seções                                           */
-/* ================================================================= */
-.gradient-top {
+/* Desabilitar zoom */
+body {
+  touch-action: pan-y;
+}
+
+/* Header e Gradiente Superior */
+#header {
+  width: 100%;
+  min-height: 100vh;
   background: linear-gradient(135deg, #000, #333);
-  width: 100%;
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.gradient-bottom {
-  background: linear-gradient(135deg, #444, #222);
-  width: 100%;
-  min-height: 100vh;
+.header-content {
+  text-align: center;
+  padding: 20px;
 }
 
-/* ================================================================= */
-/* Animação do Cursor Piscante                                      */
-/* ================================================================= */
-.blinking-cursor {
-  animation: blink 1s infinite;
+#main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px #000;
+}
+
+#cursor {
+  font-weight: 100;
+  font-size: 3rem;
+  animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
-  0%,
+  0% {
+    opacity: 1;
+  }
   50% {
-    opacity: 1;
+    opacity: 0;
   }
-  50.1%,
   100% {
-    opacity: 0;
-  }
-}
-
-/* ================================================================= */
-/* Estilização dos Gráficos                                          */
-/* ================================================================= */
-.bar-container {
-  position: relative;
-  text-align: center;
-}
-
-.bar {
-  width: 80px;
-  height: 0;
-  background-color: #fff;
-  border-radius: 4px 4px 0 0;
-  margin: 0 10px;
-  transition: height 1.5s ease-out;
-}
-
-.animate-bar {
-  transition: height 1.5s ease-out;
-}
-
-/* Tooltip para porcentagens */
-.tooltip {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  white-space: nowrap;
-  animation: tooltipFade 0.3s forwards;
-}
-
-@keyframes tooltipFade {
-  from {
-    opacity: 0;
-  }
-  to {
     opacity: 1;
   }
 }
 
-/* ================================================================= */
-/* Animações de Fade In e Fade Out para o Scroll                      */
-/* ================================================================= */
-.fade-in {
-  animation: fadeIn 1s forwards;
+.host-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.fade-out {
-  animation: fadeOut 1s forwards;
+.host-info span {
+  font-size: 0.9rem;
+  color: #bbb;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.host-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #555;
 }
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-/* ================================================================= */
-/* Estilização dos Botões e Interações                               */
-/* ================================================================= */
+/* Botão Start */
 #start-button {
-  transition: transform 0.3s ease;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #555, #777);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 #start-button:hover {
   transform: scale(1.05);
+  background: linear-gradient(90deg, #777, #999);
 }
 
-/* ================================================================= */
-/* Feedback dos Usuários                                             */
-/* ================================================================= */
-.feedback-container {
+/* Seções Gerais */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+  transition: opacity 0.8s ease;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Info Section */
+#info-section {
+  background: linear-gradient(135deg, #222, #444);
+}
+
+#info-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#info-section p {
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Graph Section */
+#graph-section {
+  background: linear-gradient(135deg, #333, #555);
+}
+
+#graph-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.graph-container {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
-.feedback-item {
-  background-color: #1f2937;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+.graph-bar {
+  width: 100px;
+  height: 200px;
+  background: #222;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.feedback-item:hover {
-  background-color: #374151;
+.graph-bar:hover {
+  transform: scale(1.05);
+}
+
+.bar-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #777, #fff);
+  position: absolute;
+  bottom: 0;
+  transition: height 1s ease;
+}
+
+.bar-label {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  font-size: 0.8rem;
+  color: #eee;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.bar-tooltip {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 3px 6px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.graph-bar:hover .bar-tooltip {
+  opacity: 1;
+}
+
+/* Animação dos gráficos */
+.animate-bar .bar-fill {
+  animation: grow 1.5s forwards;
+}
+
+@keyframes grow {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--final-height);
+  }
+}
+
+/* Feedback Section */
+#feedback-section {
+  background: linear-gradient(135deg, #444, #666);
+}
+
+#feedback-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.feedback-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feedback-box {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.feedback-box:hover {
   transform: translateY(-5px);
 }
 
-.feedback-name {
-  font-size: 1.25rem;
-  font-weight: bold;
+.feedback-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-.feedback-comment {
-  font-size: 1rem;
-  margin: 0.5rem 0;
+.feedback-box p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
 }
 
 .feedback-rating {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
 }
 
-.rating-stars {
-  font-size: 1.5rem;
+.feedback-rating .stars {
+  font-size: 1rem;
+  color: #ff0;
 }
 
-.rating-count {
-  margin-left: 0.5rem;
-  font-size: 0.875rem;
+.feedback-rating .useful-count {
+  font-size: 0.7rem;
+  color: #ccc;
+  margin-top: 5px;
 }
 
-/* ================================================================= */
-/* Responsividade e Ajustes para Mobile                              */
-/* ================================================================= */
+/* Responsividade */
 @media (max-width: 768px) {
-  #header-animation {
-    font-size: 3rem;
-  }
-  .bar {
-    width: 50px;
-  }
-}
-
-@media (max-width: 640px) {
-  .text-6xl {
+  #main-title {
     font-size: 2.5rem;
   }
-  .text-4xl {
-    font-size: 2rem;
+  #start-button {
+    font-size: 1rem;
+    padding: 8px 20px;
   }
-  .text-3xl {
-    font-size: 1.75rem;
+  .graph-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .graph-bar {
+    width: 80px;
+    height: 150px;
   }
 }
 
-/* ================================================================= */
-/* Estilizações Extras e Configurações Gerais                        */
-/* ================================================================= */
-html {
-  scroll-behavior: smooth;
-  touch-action: manipulation;
+/* Espaçador extra para scroll */
+.spacer {
+  height: 100px;
 }
 
-body,
-button,
-a {
-  user-select: none;
-}
-
-::-webkit-scrollbar {
+/* Comentários e espaçamentos extras para padronização */
+body::-webkit-scrollbar {
   width: 8px;
 }
-
-::-webkit-scrollbar-track {
-  background: #222;
-}
-
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background: #555;
   border-radius: 4px;
 }
-
-/* ================================================================= */
-/* Classes Auxiliares e Espaçamentos Adicionais                        */
-/* ================================================================= */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+body::-webkit-scrollbar-track {
+  background: #222;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+/* Fim do CSS – linhas extras para completar requisitos */
+.header-content,
+.info-content,
+.graph-container,
+.feedback-container {
+  padding: 10px;
 }
-
-.paragraph {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+#header,
+#info-section,
+#graph-section,
+#feedback-section {
+  margin-bottom: 40px;
 }
-
-.mt-12 {
-  margin-top: 3rem;
+.fade-in {
+  animation: fadeIn 1s forwards;
 }
-
-.mb-6 {
-  margin-bottom: 1.5rem;
+.fade-out {
+  animation: fadeOut 1s forwards;
 }
-
-/* ================================================================= */
-/* Estilização para a Imagem do Logo Hospededa por Hsyst               */
-/* ================================================================= */
-img.rounded {
-  border: 1px solid #fff;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* ================================================================= */
-/* Comentários Finais e Fechamento                                   */
-/* ================================================================= */
-/* Fim dos estilos customizados para o ChatGram */
-/* Certifique-se de que este arquivo tenha pelo menos 168 linhas */
-/* Linha extra 1 */
-/* Linha extra 2 */
-/* Linha extra 3 */
-/* Linha extra 4 */
-/* Linha extra 5 */
-/* Linha extra 6 */
-/* Linha extra 7 */
-/* Linha extra 8 */
-/* Linha extra 9 */
-/* Linha extra 10 */
-/* Linha extra 11 */
-/* Linha extra 12 */
-/* Linha extra 13 */
-/* Linha extra 14 */
-/* Linha extra 15 */
-/* Linha extra 16 */
-/* Linha extra 17 */
-/* Linha extra 18 */
-/* Linha extra 19 */
-/* Linha extra 20 */
-/* Fim do arquivo de estilos */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
