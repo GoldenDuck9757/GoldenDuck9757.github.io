@@ -1,208 +1,187 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>ChatGram</title>
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      /* Inline styles complementares, se necessário */
-    </style>
   </head>
-  <body class="bg-black text-white overflow-x-hidden">
-    <!-- ================================================================= -->
-    <!-- Seção Superior: Cabeçalho com Gradiente e Animação de Texto -->
-    <!-- ================================================================= -->
-    <section id="top-section" class="min-h-screen flex flex-col items-center justify-center relative gradient-top">
-      <!-- Cabeçalho Animado -->
-      <div id="header-animation" class="text-6xl font-bold mb-4 tracking-wider">
-        ChatGram<span id="cursor" class="blinking-cursor">|</span>
+  <body>
+    <!-- Header Section -->
+    <header id="header">
+      <div class="header-content">
+        <h1 id="main-title" class="typing-animation">
+          ChatGram<span id="cursor">|</span>
+        </h1>
+        <div class="host-info">
+          <span>hosteado por Hsyst</span>
+          <img
+            src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4"
+            alt="Hsyst Logo"
+          />
+        </div>
+        <button id="start-button">Start</button>
       </div>
-      <!-- Informações de Hospedagem -->
-      <div class="text-lg flex items-center gap-2 mb-8">
-        <span>hosteado por Hsyst</span>
-        <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst Logo" class="w-8 h-8 rounded" />
-      </div>
-      <!-- Botão Start -->
-      <a
-        id="start-button"
-        href="https://seusite.com"
-        class="px-6 py-3 bg-white text-black font-semibold rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
-        >Start</a
-      >
-    </section>
+    </header>
 
-    <!-- ================================================================= -->
-    <!-- Seção de Informações: Sobre o ChatGram, Gráfico e Feedback -->
-    <!-- ================================================================= -->
-    <section id="info-section" class="min-h-screen flex flex-col justify-center items-center gradient-bottom opacity-0">
-      <!-- Sobre o ChatGram -->
-      <div class="max-w-3xl p-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">Sobre o ChatGram</h2>
-        <p class="mb-6">
-          O ChatGram é uma plataforma inovadora que prioriza a privacidade e a segurança.
-          Explore funcionalidades incríveis, gráficos interativos e um sistema de feedback dinâmico,
-          tudo com um design moderno e responsivo.
+    <!-- Info Section -->
+    <section id="info-section" class="section fade-in">
+      <div class="info-content">
+        <h2>Sobre o ChatGram</h2>
+        <p>
+          O ChatGram é uma plataforma inovadora onde a privacidade é prioridade.
+          Aqui, você encontra anonimato, criptografia e uma experiência de usuário
+          moderna e segura. Explore os recursos e descubra como nossa interface
+          inteligente transforma a comunicação.
         </p>
       </div>
-      <!-- Seção do Gráfico Fictício -->
-      <div id="graph-section" class="w-full max-w-4xl p-4">
-        <h3 class="text-3xl font-semibold text-center mb-6">Avaliação do Site</h3>
-        <div class="flex justify-around items-end h-64 relative">
-          <!-- Barra: Não Gostou do Site -->
-          <div class="bar-container group">
-            <div class="bar bg-red-500 rounded-t" data-percentage="15"></div>
-            <p class="text-center mt-2">Não gostou do site</p>
-            <div class="tooltip hidden group-hover:block">15%</div>
-          </div>
-          <!-- Barra: Neutro -->
-          <div class="bar-container group">
-            <div class="bar bg-yellow-500 rounded-t" data-percentage="40"></div>
-            <p class="text-center mt-2">Neutro</p>
-            <div class="tooltip hidden group-hover:block">40%</div>
-          </div>
-          <!-- Barra: Gostou -->
-          <div class="bar-container group">
-            <div class="bar bg-green-500 rounded-t" data-percentage="75"></div>
-            <p class="text-center mt-2">Gostou</p>
-            <div class="tooltip hidden group-hover:block">75%</div>
-          </div>
+    </section>
+
+    <!-- Graph Section -->
+    <section id="graph-section" class="section fade-in">
+      <h2>Avaliação do Site</h2>
+      <div class="graph-container">
+        <div class="graph-bar" data-percentage="15">
+          <div class="bar-fill" style="height:15%"></div>
+          <span class="bar-label">Não gostou do site</span>
+          <div class="bar-tooltip">15%</div>
+        </div>
+        <div class="graph-bar" data-percentage="35">
+          <div class="bar-fill" style="height:35%"></div>
+          <span class="bar-label">Neutro</span>
+          <div class="bar-tooltip">35%</div>
+        </div>
+        <div class="graph-bar" data-percentage="50">
+          <div class="bar-fill" style="height:50%"></div>
+          <span class="bar-label">Gostou</span>
+          <div class="bar-tooltip">50%</div>
         </div>
       </div>
-      <!-- Seção de Feedback dos Usuários -->
-      <div id="feedback-section" class="w-full max-w-3xl p-4 mt-12">
-        <h3 class="text-3xl font-semibold text-center mb-6">Feedback dos Usuários</h3>
-        <div class="feedback-container space-y-6">
-          <!-- Feedback 1 -->
-          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
-            <span class="feedback-name font-bold">anônimo</span>
-            <p class="feedback-comment my-2">
-              O site é surpreendente e a experiência é incrível!
-            </p>
-            <div class="feedback-rating flex justify-end items-center">
-              <span class="rating-stars text-2xl">☆☆☆☆</span>
-              <span class="rating-count ml-2 text-sm">23 pessoas acharam isso útil</span>
-            </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback-section" class="section fade-in">
+      <h2>Feedback dos Usuários</h2>
+      <div class="feedback-container">
+        <div class="feedback-box">
+          <h3>Anônimo</h3>
+          <p>Excelente interface e usabilidade diferenciada.</p>
+          <div class="feedback-rating">
+            <span class="stars">☆☆☆☆</span>
+            <span class="useful-count">42 pessoas acharam isso útil</span>
           </div>
-          <!-- Feedback 2 -->
-          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
-            <span class="feedback-name font-bold">anônimo</span>
-            <p class="feedback-comment my-2">
-              Design moderno, mas poderia melhorar em algumas funcionalidades.
-            </p>
-            <div class="feedback-rating flex justify-end items-center">
-              <span class="rating-stars text-2xl">☆☆☆</span>
-              <span class="rating-count ml-2 text-sm">17 pessoas acharam isso útil</span>
-            </div>
+        </div>
+        <div class="feedback-box">
+          <h3>Anônimo</h3>
+          <p>O design é muito moderno, mas pode melhorar a navegação.</p>
+          <div class="feedback-rating">
+            <span class="stars">☆☆☆</span>
+            <span class="useful-count">30 pessoas acharam isso útil</span>
           </div>
-          <!-- Feedback 3 -->
-          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
-            <span class="feedback-name font-bold">anônimo</span>
-            <p class="feedback-comment my-2">
-              A interface é responsiva e muito bem feita, gostei bastante!
-            </p>
-            <div class="feedback-rating flex justify-end items-center">
-              <span class="rating-stars text-2xl">☆☆☆☆☆</span>
-              <span class="rating-count ml-2 text-sm">31 pessoas acharam isso útil</span>
-            </div>
+        </div>
+        <div class="feedback-box">
+          <h3>Anônimo</h3>
+          <p>A privacidade é real e o anonimato impressiona.</p>
+          <div class="feedback-rating">
+            <span class="stars">☆☆☆☆☆</span>
+            <span class="useful-count">55 pessoas acharam isso útil</span>
           </div>
-          <!-- Feedback 4 -->
-          <div class="feedback-item p-4 bg-gray-800 rounded shadow flex flex-col">
-            <span class="feedback-name font-bold">anônimo</span>
-            <p class="feedback-comment my-2">
-              Simples e eficiente, exatamente o que eu precisava.
-            </p>
-            <div class="feedback-rating flex justify-end items-center">
-              <span class="rating-stars text-2xl">☆☆☆☆</span>
-              <span class="rating-count ml-2 text-sm">12 pessoas acharam isso útil</span>
-            </div>
+        </div>
+        <div class="feedback-box">
+          <h3>Anônimo</h3>
+          <p>Interface limpa e objetiva, recomendo!</p>
+          <div class="feedback-rating">
+            <span class="stars">☆☆☆☆</span>
+            <span class="useful-count">23 pessoas acharam isso útil</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================= -->
-    <!-- JavaScript: Animações de Digitação, Scroll e Gráfico -->
-    <!-- ================================================================= -->
+    <!-- Extra spacing for scroll effect -->
+    <div class="spacer"></div>
+
+    <!-- Scripts -->
     <script>
-      // Animação de digitação para o cabeçalho
-      const headerAnimation = document.getElementById("header-animation")
-      const cursor = document.getElementById("cursor")
-      const phrases = ["anonimato", "privacidade", "criptografia", "ChatGram"]
-      let phraseIndex = 0
-      let letterIndex = 0
+      // Variáveis para animação do título
+      const titleElement = document.getElementById("main-title");
+      const cursorElement = document.getElementById("cursor");
+      const phrases = ["anonimato", "privacidade", "criptografia", "ChatGram"];
+      let currentPhrase = 0;
+      let charIndex = 0;
+      let typing = true;
+      const delayBetweenPhrases = 1500;
+      const typingSpeed = 100;
+      const erasingSpeed = 50;
+
       function typePhrase() {
-        if (letterIndex < phrases[phraseIndex].length) {
-          headerAnimation.innerHTML =
-            phrases[phraseIndex].substring(0, letterIndex + 1) +
-            '<span id="cursor" class="blinking-cursor">|</span>'
-          letterIndex++
-          setTimeout(typePhrase, 150)
+        if (typing) {
+          if (charIndex < phrases[currentPhrase].length) {
+            titleElement.innerText = phrases[currentPhrase].substring(0, charIndex + 1);
+            titleElement.append(cursorElement);
+            charIndex++;
+            setTimeout(typePhrase, typingSpeed);
+          } else {
+            typing = false;
+            setTimeout(typePhrase, delayBetweenPhrases);
+          }
         } else {
-          setTimeout(() => {
-            deletePhrase()
-          }, 1000)
+          if (charIndex > 0) {
+            titleElement.innerText = phrases[currentPhrase].substring(0, charIndex - 1);
+            titleElement.append(cursorElement);
+            charIndex--;
+            setTimeout(typePhrase, erasingSpeed);
+          } else {
+            typing = true;
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            setTimeout(typePhrase, typingSpeed);
+          }
         }
       }
-      function deletePhrase() {
-        if (letterIndex > 0) {
-          headerAnimation.innerHTML =
-            phrases[phraseIndex].substring(0, letterIndex - 1) +
-            '<span id="cursor" class="blinking-cursor">|</span>'
-          letterIndex--
-          setTimeout(deletePhrase, 100)
-        } else {
-          phraseIndex = (phraseIndex + 1) % phrases.length
-          setTimeout(typePhrase, 500)
-        }
-      }
-      // Inicia a animação após 3 segundos
+
       setTimeout(() => {
-        headerAnimation.innerHTML = ""
-        letterIndex = 0
-        typePhrase()
-      }, 3000)
+        typePhrase();
+      }, 3000);
 
-      // Animação de fade in ao rolar a página
-      const infoSection = document.getElementById("info-section")
-      window.addEventListener("scroll", () => {
-        let scrollPos = window.scrollY
-        if (scrollPos > window.innerHeight * 0.5) {
-          infoSection.classList.add("fade-in")
-          infoSection.classList.remove("fade-out")
-        } else {
-          infoSection.classList.add("fade-out")
-          infoSection.classList.remove("fade-in")
-        }
-      })
+      // Botão de Start
+      document.getElementById("start-button").addEventListener("click", function () {
+        window.location.href = "https://meusite.com";
+      });
 
-      // Animação do gráfico ao entrar na visualização
-      const graphSection = document.getElementById("graph-section")
-      const bars = document.querySelectorAll(".bar")
-      function animateGraph() {
-        let rect = graphSection.getBoundingClientRect()
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          bars.forEach((bar) => {
-            let percentage = bar.getAttribute("data-percentage")
-            bar.style.height = percentage + "%"
-            bar.classList.add("animate-bar")
-          })
-        }
-      }
-      window.addEventListener("scroll", animateGraph)
-      window.addEventListener("load", animateGraph)
+      // Animações de scroll
+      window.addEventListener("scroll", function () {
+        let scrollY = window.scrollY;
+        document.querySelectorAll(".section").forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (scrollY > sectionTop - window.innerHeight * 0.8) {
+            section.classList.add("fade-in");
+            section.classList.remove("fade-out");
+          } else {
+            section.classList.remove("fade-in");
+            section.classList.add("fade-out");
+          }
+        });
+      });
+
+      // Animação do gráfico ao entrar na viewport
+      const graphSection = document.getElementById("graph-section");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              document.querySelectorAll(".graph-bar").forEach((bar) => {
+                bar.classList.add("animate-bar");
+              });
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(graphSection);
     </script>
-
-    <!-- ================================================================= -->
-    <!-- Espaço Extra para Permitir Rolagem e Exibir Animações -->
-    <!-- ================================================================= -->
-    <div style="height: 100vh;"></div>
-
-    <!-- ================================================================= -->
-    <!-- Fim do Documento HTML -->
-    <!-- ================================================================= -->
   </body>
 </html>
