@@ -7,8 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  /* Gradiente vertical: parte de cima muito escura, descendo para cinza */
-  background: linear-gradient(to bottom, #000, #222, #555, #777);
+  background: linear-gradient(to bottom, #000, #333, #555, #888);
 }
 
 /* Hero Section */
@@ -99,11 +98,7 @@ section {
   transform: translateY(0);
 }
 
-/* Gráfico – as barras ficam lado a lado e sem porcentagem aparente
-   O label fica no canto superior direito de cada barra */
-.graph-container {
-  text-align: center;
-}
+/* Gráfico – as barras ficam lado a lado e sem porcentagem aparente */
 .chart {
   display: flex;
   justify-content: space-around;
@@ -116,7 +111,7 @@ section {
   background: linear-gradient(180deg, #fff, #777);
   border-radius: 5px 5px 0 0;
   position: relative;
-  height: 0; /* animado somente no load */
+  height: 0;
   transition: height 1s ease-out;
   cursor: pointer;
 }
