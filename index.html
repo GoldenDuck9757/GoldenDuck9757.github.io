@@ -14,10 +14,10 @@
         <span>hosteado por Hsyst</span>
         <img src="https://avatars.githubusercontent.com/u/180786278?s=200&v=4" alt="Hsyst Logo" class="host-logo">
       </div>
+      <button id="startBtn">Start</button>
     </div>
-    <button id="startBtn">Start</button>
   </header>
-
+  
   <section class="content fade">
     <h2>Sobre o ChatGram</h2>
     <p>
@@ -98,84 +98,69 @@
   </section>
 
   <script>
-    // Animação de digitação natural com cursor piscando
+    // Animação de digitação natural com cursor piscando suavemente
     document.addEventListener("DOMContentLoaded", () => {
-      const title = document.getElementById("title");
-      const cursor = document.getElementById("cursor");
-      const texts = ["ChatGram", "anonimato", "privacidade", "criptografia", "ChatGram"];
-      let textIndex = 0, charIndex = 0;
-      let isDeleting = false;
-      const typingSpeed = 150, pauseDelay = 1000;
+      const title = document.getElementById("title")
+      const cursor = document.getElementById("cursor")
+      const texts = ["ChatGram", "anonimato", "privacidade", "criptografia", "ChatGram"]
+      let textIndex = 0, charIndex = 0
+      let isDeleting = false
+      const typingSpeed = 150, pauseDelay = 1000
 
       function type() {
-        const currentText = texts[textIndex];
+        const currentText = texts[textIndex]
         if (!isDeleting) {
-          title.textContent = currentText.substring(0, charIndex) + cursor.textContent;
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
           if (charIndex < currentText.length) {
-            charIndex++;
-            setTimeout(type, typingSpeed);
+            charIndex++
+            setTimeout(type, typingSpeed)
           } else {
-            isDeleting = true;
-            setTimeout(type, pauseDelay);
+            isDeleting = true
+            setTimeout(type, pauseDelay)
           }
         } else {
-          title.textContent = currentText.substring(0, charIndex) + cursor.textContent;
+          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
           if (charIndex > 0) {
-            charIndex--;
-            setTimeout(type, typingSpeed / 2);
+            charIndex--
+            setTimeout(type, typingSpeed / 2)
           } else {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-            setTimeout(type, typingSpeed);
+            isDeleting = false
+            textIndex = (textIndex + 1) % texts.length
+            setTimeout(type, typingSpeed)
           }
         }
       }
-      type();
+      type()
 
       // Botão Start
       document.getElementById("startBtn").addEventListener("click", () => {
-        window.location.href = "https://seusite.com";
-      });
+        window.location.href = "https://seusite.com"
+      })
 
-      // Animação de fade in/out ao rolar a página
-      const faders = document.querySelectorAll('.fade');
-      const observerOptions = { threshold: 0.3 };
+      // Fade in/out ao rolar a página
+      const faders = document.querySelectorAll('.fade')
+      const observerOptions = { threshold: 0.3 }
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if(entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('visible')
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove('visible')
           }
-        });
-      }, observerOptions);
-      faders.forEach(fader => observer.observe(fader));
+        })
+      }, observerOptions)
+      faders.forEach(fader => observer.observe(fader))
 
-      // Animação do gráfico
-      const bars = document.querySelectorAll('.bar');
+      // Animação do gráfico somente na carga
+      const bars = document.querySelectorAll('.bar')
       window.addEventListener('load', () => {
         bars.forEach((bar, index) => {
           setTimeout(() => {
-            bar.style.height = bar.getAttribute('data-percentage') + '%';
-          }, index * 300);
-        });
-      });
-      // Exibir porcentagem ao passar o mouse ou toque
-      bars.forEach(bar => {
-        bar.addEventListener('mouseover', () => {
-          bar.querySelector('.bar-percentage').style.opacity = 1;
-        });
-        bar.addEventListener('mouseout', () => {
-          bar.querySelector('.bar-percentage').style.opacity = 0;
-        });
-        bar.addEventListener('touchstart', () => {
-          bar.querySelector('.bar-percentage').style.opacity = 1;
-        });
-        bar.addEventListener('touchend', () => {
-          bar.querySelector('.bar-percentage').style.opacity = 0;
-        });
-      });
-    });
+            bar.style.height = bar.getAttribute('data-percentage') + '%'
+          }, index * 300)
+        })
+      })
+    })
   </script>
 </body>
 </html>
