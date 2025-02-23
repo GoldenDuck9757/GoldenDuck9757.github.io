@@ -1,134 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGram</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Estilos e fontes podem ser adicionados aqui... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGram</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const title = document.getElementById("title");
+            const cursor = document.getElementById("cursor");
+            const startBtn = document.getElementById("startBtn");
+
+            const animations = ["anonimato", "privacidade", "criptografia", "ChatGram"];
+            let index = 0;
+
+            function animateText() {
+                title.innerHTML = ""; // Limpa o texto atual
+                const currentText = animations[index];
+
+                let charIndex = 0;
+
+                const typing = setInterval(() => {
+                    if (charIndex < currentText.length) {
+                        title.innerHTML += currentText.charAt(charIndex);
+                        charIndex++;
+                    } else {
+                        clearInterval(typing);
+                        setTimeout(() => {
+                            title.innerHTML = ""; // Limpa o texto
+                            index = (index + 1) % animations.length; // Atualiza o índice
+                            animateText(); // Chama a função recursivamente
+                        }, 1000); // Espera antes de começar a próxima animação
+                    }
+                }, 200); // Velocidade de digitação
+
+                cursor.style.display = "block"; // Mostra o cursor
+                setTimeout(() => {
+                    cursor.style.display = "none"; // Oculta o cursor
+                }, 1000);
+            }
+
+            setTimeout(() => {
+                animateText();
+            }, 3000); // Espera 3 segundos para iniciar a animação
+
+            startBtn.addEventListener("click", () => {
+                window.location.href = "https://seusite.com"; // Troque pelo seu site
+            });
+        });
+    </script>
 </head>
 <body>
-  <!-- Cabeçalho com título animado e botão Start... -->
-  <header>
-    <div class="header-container">
-      <!-- Título inicial com animação de digitação -->
-      <div class="title-container">
-        <h1 id="title">ChatGram<span id="cursor">|</span></h1>
-      </div>
-      <!-- Botão Start que redireciona para o seu site -->
-      <button id="startBtn">Start</button>
-    </div>
-  </header>
-
-  <!-- Seção Sobre: Explicação sobre o ChatGram, privacidade, etc... -->
-  <section id="about">
-    <div class="content">
-      <h2>Sobre o ChatGram</h2>
-      <p>
-        O ChatGram é uma plataforma moderna que prioriza a privacidade, o anonimato e a criptografia...
-        Nossa proposta é oferecer uma experiência única onde os dados são protegidos e a interação é transparente...
-      </p>
-    </div>
-  </section>
-
-  <!-- Seção Gráfico: Animação de gráfico mentiroso com usuários simultâneos... -->
-  <section id="graph">
-    <div class="graph-container">
-      <h2>Usuários Simultâneos</h2>
-      <div class="bar-chart">
-        <!-- Barras animadas representando usuários... -->
-        <div class="bar" style="--delay:0.2s;"></div>
-        <div class="bar" style="--delay:0.4s;"></div>
-        <div class="bar" style="--delay:0.6s;"></div>
-        <div class="bar" style="--delay:0.8s;"></div>
-        <div class="bar" style="--delay:1s;"></div>
-        <div class="bar" style="--delay:1.2s;"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seção Feedback: Caixa com comentários anônimos... -->
-  <section id="feedback">
-    <div class="feedback-container">
-      <h2>Feedback</h2>
-      <div class="feedback-box">
-        <!-- Comentário 1 -->
-        <div class="feedback-item">
-          <span class="username">anônimo</span>
-          <p class="comment">Excelente experiência, super recomendo...</p>
+    <header>
+        <div class="header-container">
+            <div class="title-container">
+                <h1 id="title">ChatGram<span id="cursor">|</span></h1>
+            </div>
+            <button id="startBtn">Start</button>
         </div>
-        <!-- Comentário 2 -->
-        <div class="feedback-item">
-          <span class="username">anônimo</span>
-          <p class="comment">Privacidade e segurança acima de tudo...</p>
-        </div>
-        <!-- Comentário 3 -->
-        <div class="feedback-item">
-          <span class="username">anônimo</span>
-          <p class="comment">Interface moderna e intuitiva, gostei demais...</p>
-        </div>
-        <!-- Comentário 4 -->
-        <div class="feedback-item">
-          <span class="username">anônimo</span>
-          <p class="comment">Nunca vi algo tão inovador no mercado...</p>
-        </div>
-        <!-- Comentário 5 -->
-        <div class="feedback-item">
-          <span class="username">anônimo</span>
-          <p class="comment">Uma revolução em termos de segurança e design...</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Scripts para animação do título e interação do botão Start... -->
-  <script>
-    // Animação de digitação no título
-    document.addEventListener('DOMContentLoaded', function() {
-      const title = document.getElementById('title')
-      const cursor = document.getElementById('cursor')
-      const texts = ['anonimato', 'privacidade', 'criptografia', 'ChatGram']
-      let textIndex = 0
-      let charIndex = 0
-      let isDeleting = false
-      const typingSpeed = 150
-      const deletingSpeed = 100
-      const delayBetween = 2000
-      const initialDelay = 3000
+    <section class="content">
+        <h2>Sobre o ChatGram</h2>
+        <p>ChatGram é uma plataforma inovadora que prioriza o anonimato e a privacidade dos usuários...</p>
+    </section>
 
-      function type() {
-        let currentText = texts[textIndex]
-        if (!isDeleting) {
-          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
-          if (charIndex < currentText.length) {
-            charIndex++
-            setTimeout(type, typingSpeed)
-          } else {
-            isDeleting = true
-            setTimeout(type, delayBetween)
-          }
-        } else {
-          title.textContent = currentText.substring(0, charIndex) + cursor.textContent
-          if (charIndex > 0) {
-            charIndex--
-            setTimeout(type, deletingSpeed)
-          } else {
-            isDeleting = false
-            textIndex = (textIndex + 1) % texts.length
-            setTimeout(type, typingSpeed)
-          }
-        }
-      }
-      setTimeout(type, initialDelay)
-    })
+    <section class="graph-container">
+        <h2>Gráfico de Usuários Simultâneos</h2>
+        <div class="bar-chart">
+            <div class="bar" style="height: 250px;"></div>
+            <div class="bar" style="height: 200px;"></div>
+            <div class="bar" style="height: 150px;"></div>
+            <div class="bar" style="height: 300px;"></div>
+            <div class="bar" style="height: 100px;"></div>
+            <div class="bar" style="height: 220px;"></div>
+        </div>
+    </section>
 
-    // Redirecionamento do botão Start para o seu site
-    document.getElementById('startBtn').addEventListener('click', function(){
-      window.location.href = "https://seusite.com"  // Substitua pela URL do seu site...
-    })
-  </script>
-
-  <!-- Espaços e comentários adicionais para manutenção e clareza do código -->
-  <!-- Fim do corpo do documento -->
+    <section class="feedback-container">
+        <h2>Feedback dos Usuários</h2>
+        <div class="feedback-box">
+            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Ótimo serviço, muito seguro!</span></div>
+            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Adoro a privacidade que oferece.</span></div>
+            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Interface muito bonita e funcional.</span></div>
+            <div class="feedback-item"><span class="username">Anônimo</span>: <span class="comment">Recomendo para todos!</span></div>
+        </div>
+    </section>
 </body>
 </html>
