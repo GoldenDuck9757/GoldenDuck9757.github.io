@@ -7,15 +7,16 @@
 body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #000, #111, #222, #333);
+  background: linear-gradient(to bottom, #000, #000, #111, #111);
+  color: #ccc;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(to bottom, #000, #222);
+  background: linear-gradient(to bottom, #000, #111);
   color: #fff;
   text-align: center;
-  padding: 6rem 1rem;
+  padding: 8rem 2rem;
   position: relative;
 }
 .hero-content {
@@ -23,7 +24,7 @@ body {
   margin: 0 auto;
 }
 #title {
-  font-size: 6rem;
+  font-size: 8rem;
   letter-spacing: 2px;
 }
 #cursor {
@@ -43,7 +44,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: #aaa;
+  color: #888;
   font-size: 1rem;
 }
 .host-logo {
@@ -55,24 +56,24 @@ body {
 /* Botão Start */
 #startBtn {
   margin-top: 2rem;
-  background: linear-gradient(45deg, #fff, #ccc);
+  background: linear-gradient(45deg, #333, #555);
   border: none;
   padding: 1rem 2rem;
   font-size: 1.2rem;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   border-radius: 50px;
   transition: background 0.3s, transform 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 #startBtn:hover {
-  background: linear-gradient(45deg, #ccc, #fff);
+  background: linear-gradient(45deg, #555, #777);
   transform: scale(1.05);
 }
 
 /* Seções – empilhadas verticalmente */
 section {
-  padding: 3rem 1rem;
+  padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   display: block;
@@ -80,9 +81,9 @@ section {
 .content,
 .graph-container,
 .reviews-container {
-  background: linear-gradient(to bottom, #333, #444);
+  background: linear-gradient(to bottom, #111, #222);
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.8);
 }
@@ -108,7 +109,7 @@ section {
 }
 .bar {
   width: 30%;
-  background: linear-gradient(180deg, #999, #777);
+  background: linear-gradient(180deg, #444, #666);
   border-radius: 5px 5px 0 0;
   position: relative;
   height: 0;
@@ -120,8 +121,8 @@ section {
   top: 5px;
   right: 5px;
   font-size: 0.9rem;
-  color: #000;
-  background: rgba(255,255,255,0.7);
+  color: #fff;
+  background: rgba(0,0,0,0.7);
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
 }
@@ -136,8 +137,8 @@ section {
   gap: 1.5rem;
 }
 .review {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.5rem;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -158,6 +159,7 @@ section {
 }
 .review-footer .stars {
   font-size: 1.2rem;
+  color: #FFD700;
 }
 .review-footer .helpful-count {
   margin-top: 0.2rem;
@@ -185,6 +187,6 @@ section {
     gap: 1rem;
   }
   .review {
-    padding: 0.8rem;
+    padding: 1rem;
   }
 }
