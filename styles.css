@@ -15,15 +15,15 @@ body {
   background: linear-gradient(to bottom, #000, #222);
   color: #fff;
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 6rem 1rem;
   position: relative;
 }
 .hero-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 #title {
-  font-size: 4rem;
+  font-size: 6rem;
   letter-spacing: 2px;
 }
 #cursor {
@@ -166,10 +166,10 @@ section {
 /* Responsividade */
 @media (max-width: 768px) {
   #title {
-    font-size: 3rem;
+    font-size: 5rem;
   }
   .hero {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
   }
   #startBtn {
     padding: 0.8rem 1.5rem;
